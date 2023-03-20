@@ -20,14 +20,27 @@ body {
 }
 
 .topnav a.active {
-  background-color: #486ce4;
   width: 100px;
   border-radius: 10px;
-  color: white;
+  color: #486ce4;
+  font-weight: bold;
 }
 
-.web_title {
-  margin: auto;
+h5 {
+  color: rgb(92, 92, 92);
+}
+
+a {
+  color: red;
+}
+
+.submitBtn {
+  border: 1px solid #204ccc;
+  padding: 10px;
+  background-color: #204ccc;
+  color: white;
+  width: 100px;
+  border-radius: 5px;
 }
 
 .dropdown {
@@ -72,6 +85,26 @@ body {
   display: block;
 }
 
+table.gridtable {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  border-collapse: collapse;
+}
+
+table.gridtable th {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #dad6d6;
+  background-color: #bdc9f1;
+}
+table.gridtable td {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #dad6d6;
+  background-color: #ffffff;
+}
 /*
 .searchbar input[type="text"] {
   box-shadow: 0 3px 8px rgba(83, 124, 228, 0.24);
