@@ -1,7 +1,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: #02123b;
-  background-color: hsl(220, 7%, 92%);
+  background-color: rgb(233, 234, 236);
   padding-left: 10;
   padding-top: 10;
 }
@@ -19,28 +19,12 @@ body {
   font-size: 17px;
 }
 
-.topnav a.active {
-  width: 100px;
-  border-radius: 10px;
-  color: #486ce4;
-  font-weight: bold;
-}
-
 h5 {
   color: rgb(92, 92, 92);
 }
 
 a {
   color: red;
-}
-
-.submitBtn {
-  border: 1px solid #204ccc;
-  padding: 10px;
-  background-color: #204ccc;
-  color: white;
-  width: 100px;
-  border-radius: 5px;
 }
 
 .dropdown {
@@ -105,24 +89,55 @@ table.gridtable td {
   border-color: #dad6d6;
   background-color: #ffffff;
 }
-/*
-.searchbar input[type="text"] {
-  box-shadow: 0 3px 8px rgba(83, 124, 228, 0.24);
-  border-radius: 50px;
-  border-color: transparent;
-  padding: 10;
-  width: 600px;
+
+label {
+  font-size: medium;
 }
 
-.searchbar input[type="text"]:focus {
+input[type="text"],
+select {
+  margin: 8px 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 0 3px 8px rgba(83, 124, 228, 0.24);
+  padding: 10;
+}
+
+input[type="text"]:focus {
   outline: none;
 }
 
-.button {
-  background-color: #486ce4;
-  border-radius: 20px;
-  padding: 10;
-  width: 100px;
-  border-color: transparent;
+input[type="submit"] {
+  border: 1px solid #204ccc;
+  padding: 10px;
+  background-color: #204ccc;
   color: white;
-}*/
+  width: 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0px auto;
+  display: block;
+  margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #081f64;
+}
+
+div.form {
+  display: block;
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  border: 1px solid #ffffff;
+  background-color: #afb6cc25;
+  padding: 20px;
+  border-radius: 10px;
+}

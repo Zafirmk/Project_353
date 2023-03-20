@@ -7,7 +7,7 @@
 
 <body>
   <div class="topnav">
-    <a class="active" href="index.php">Home</a>
+    <a style="color: #486ce4;font-weight: bold" href=" index.php">Home</a>
 
     <div class="dropdown">
       <button class="dropbtn">Employees_Managers
@@ -67,13 +67,6 @@
 
   <div class="web_title">
     <h2>Welcome to Health Facility Employee Status Tracking System (HFESTS)</h2>
-  </div>
-
-  </div class="searchbar">
-  <form action="<?php $_PHP_SELF ?>" method="POST">
-    <input type="text" placeholder="Search">
-    <input class="button" type="submit" />
-  </form>
   </div>
 
 </body>

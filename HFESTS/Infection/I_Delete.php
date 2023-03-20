@@ -7,7 +7,7 @@
 
 <body>
   <div class="topnav">
-    <a class="active" href="../index.php">Home</a>
+    <a href="../index.php">Home</a>
 
     <div class="dropdown">
       <button class="dropbtn">Employees_Managers
@@ -43,7 +43,7 @@
     </div>
 
     <div class="dropdown">
-      <button class="dropbtn">Infection
+      <button class="dropbtn" style="color: #486ce4;font-weight: bold">Infection
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
