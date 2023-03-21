@@ -6,7 +6,7 @@
     global $conn;
 
     if ($result = mysqli_query($conn, "SELECT * FROM Employees_Managers")) {
-      echo "<h2>Delete a Row From Employees_Managers</h2>";
+      echo "<h2>Employees_Managers Table</h2>";
 
       echo "<table class='gridTable'><tr>";
       echo "<th>" .  'EmployeeID' . "</th>";
@@ -24,6 +24,7 @@
       echo "<th>" .  'Role' . "</th>";
       echo "<th>" .  'Is_Manager' . "</th>";
       echo "<th>" .  'DELETE' . "</th>";
+      echo "<th>" .  'EDIT' . "</th>";
       echo "</tr>";
 
       while ($row = mysqli_fetch_array($result)) {
@@ -42,7 +43,8 @@
         echo "<td>" .  $row['EmailAddress'] . "</td>";
         echo "<td>" .  $row['Role'] . "</td>";
         echo "<td>" .  $row['Is_Manager'] . "</td>";
-        echo "<td><a href='../Database/delete.php?EID={$row['EmployeeID']}&FN={$row['FirstName']}&LN={$row['LastName']}&DOB={$row['DateOfBirth']}&MCN={$row['MedicareCardNumber']}&Tel={$row['TelephoneNumber']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&CS={$row['Citizenship']}&EA={$row['EmailAddress']}&Role={$row['Role']}&IM={$row['Is_Manager']}&table_name=Employees_Managers'>Delete</a> </td>";
+        echo "<td><a class='del' href='../Database/delete.php?EID={$row['EmployeeID']}&FN={$row['FirstName']}&LN={$row['LastName']}&DOB={$row['DateOfBirth']}&MCN={$row['MedicareCardNumber']}&Tel={$row['TelephoneNumber']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&CS={$row['Citizenship']}&EA={$row['EmailAddress']}&Role={$row['Role']}&IM={$row['Is_Manager']}&table_name=Employees_Managers'>DELETE</a> </td>";
+        echo "<td><a class='edit' href='../Database/edit.php?EID={$row['EmployeeID']}&FN={$row['FirstName']}&LN={$row['LastName']}&DOB={$row['DateOfBirth']}&MCN={$row['MedicareCardNumber']}&Tel={$row['TelephoneNumber']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&CS={$row['Citizenship']}&EA={$row['EmailAddress']}&Role={$row['Role']}&IM={$row['Is_Manager']}&table_name=Employees_Managers'>EDIT</a> </td>";
         echo "</tr>";
       }
       echo "</table>";
@@ -58,7 +60,7 @@
     global $conn;
 
     if ($result = mysqli_query($conn, "SELECT * FROM Facility")) {
-      echo "<h2>Delete a Row From Facility</h2>";
+      echo "<h2>Facility Table</h2>";
 
       echo "<table class='gridTable'><tr>";
       echo "<th>" .  'FacilityID' . "</th>";
@@ -72,6 +74,7 @@
       echo "<th>" .  'Type' . "</th>";
       echo "<th>" .  'Capacity' . "</th>";
       echo "<th>" .  'DELETE' . "</th>";
+      echo "<th>" .  'EDIT' . "</th>";
       echo "</tr>";
 
       while ($row = mysqli_fetch_array($result)) {
@@ -86,7 +89,8 @@
         echo "<td>" .  $row['WebAddress'] . "</td>";
         echo "<td>" .  $row['Type'] . "</td>";
         echo "<td>" .  $row['Capacity'] . "</td>";
-        echo "<td><a href='../Database/delete.php?FID={$row['FacilityID']}&Name={$row['Name']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&PN={$row['PhoneNumber']}&WA={$row['WebAddress']}&Type={$row['Type']}&Cap={$row['Capacity']}&table_name=Facility'>Delete</a> </td>";
+        echo "<td><a class='del' href='../Database/delete.php?FID={$row['FacilityID']}&Name={$row['Name']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&PN={$row['PhoneNumber']}&WA={$row['WebAddress']}&Type={$row['Type']}&Cap={$row['Capacity']}&table_name=Facility'>DELETE</a> </td>";
+        echo "<td><a class='edit' href='../Database/delete.php?FID={$row['FacilityID']}&Name={$row['Name']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&PN={$row['PhoneNumber']}&WA={$row['WebAddress']}&Type={$row['Type']}&Cap={$row['Capacity']}&table_name=Facility'>EDIT</a> </td>";
         echo "</tr>";
       }
       echo "</table>";
@@ -102,7 +106,7 @@
     global $conn;
 
     if ($result = mysqli_query($conn, "SELECT * FROM Vaccination")) {
-      echo "<h2>Delete a Row From Vaccination</h2>";
+      echo "<h2>Vaccination Table</h2>";
 
       echo "<table class='gridTable'><tr>";
       echo "<th>" .  'EmployeeID' . "</th>";
@@ -111,6 +115,7 @@
       echo "<th>" .  'DoseNumber' . "</th>";
       echo "<th>" .  'VaccinationDate' . "</th>";
       echo "<th>" .  'DELETE' . "</th>";
+      echo "<th>" .  'EDIT' . "</th>";
       echo "</tr>";
 
       while ($row = mysqli_fetch_array($result)) {
@@ -120,7 +125,8 @@
         echo "<td>" .  $row['VaccineType'] . "</td>";
         echo "<td>" .  $row['DoseNumber'] . "</td>";
         echo "<td>" .  $row['VaccinationDate'] . "</td>";
-        echo "<td><a href='../Database/delete.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&Type={$row['VaccineType']}&DN={$row['DoseNumber']}&Date={$row['VaccinationDate']}&table_name=Vaccination'>Delete</a> </td>";
+        echo "<td><a class='del' href='../Database/delete.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&Type={$row['VaccineType']}&DN={$row['DoseNumber']}&Date={$row['VaccinationDate']}&table_name=Vaccination'>DELETE</a> </td>";
+        echo "<td><a class='edit' href='../Database/delete.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&Type={$row['VaccineType']}&DN={$row['DoseNumber']}&Date={$row['VaccinationDate']}&table_name=Vaccination'>EDIT</a> </td>";
         echo "</tr>";
       }
       echo "</table>";
@@ -135,7 +141,7 @@
     global $conn;
 
     if ($result = mysqli_query($conn, "SELECT * FROM Infection")) {
-      echo "<h2>Delete a Row From Infection</h2>";
+      echo "<h2>Infection Table</h2>";
 
       echo "<table class='gridTable'><tr>";
       echo "<th>" .  'EmployeeID' . "</th>";
@@ -143,6 +149,7 @@
       echo "<th>" .  'InfectionType' . "</th>";
       echo "<th>" .  'InfectionDate' . "</th>";
       echo "<th>" .  'DELETE' . "</th>";
+      echo "<th>" .  'EDIT' . "</th>";
       echo "</tr>";
 
       while ($row = mysqli_fetch_array($result)) {
@@ -151,7 +158,8 @@
         echo "<td>" .  $row['InfectionName'] . "</td>";
         echo "<td>" .  $row['InfectionType'] . "</td>";
         echo "<td>" .  $row['InfectionDate'] . "</td>";
-        echo "<td><a href='../Database/delete.php?EID={$row['EmployeeID']}&Name={$row['InfectionName']}&Type={$row['InfectionType']}&Date={$row['InfectionDate']}&table_name=Infection'>Delete</a> </td>";
+        echo "<td><a class='del' href='../Database/delete.php?EID={$row['EmployeeID']}&Name={$row['InfectionName']}&Type={$row['InfectionType']}&Date={$row['InfectionDate']}&table_name=Infection'>DELETE</a> </td>";
+        echo "<td><a class='edit' href='../Database/delete.php?EID={$row['EmployeeID']}&Name={$row['InfectionName']}&Type={$row['InfectionType']}&Date={$row['InfectionDate']}&table_name=Infection'>EDIT</a> </td>";
         echo "</tr>";
       }
       echo "</table>";
@@ -166,7 +174,7 @@
     global $conn;
 
     if ($result = mysqli_query($conn, "SELECT * FROM Schedule")) {
-      echo "<h2>Delete a Row From Schedule</h2>";
+      echo "<h2>Schedule Table</h2>";
 
       echo "<table class='gridTable'><tr>";
       echo "<th>" .  'EmployeeID' . "</th>";
@@ -176,6 +184,7 @@
       echo "<th>" .  'StartTime' . "</th>";
       echo "<th>" .  'EndTime' . "</th>";
       echo "<th>" .  'DELETE' . "</th>";
+      echo "<th>" .  'EDIT' . "</th>";
       echo "</tr>";
 
       while ($row = mysqli_fetch_array($result)) {
@@ -186,7 +195,8 @@
         echo "<td>" .  $row['EndDate'] . "</td>";
         echo "<td>" .  $row['StartTime'] . "</td>";
         echo "<td>" .  $row['EndTime'] . "</td>";
-        echo "<td><a href='../Database/delete.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&SDate={$row['StartDate']}&EDate={$row['EndDate']}&STime={$row['StartTime']}&ETime={$row['EndTime']}&table_name=Schedule'>Delete</a> </td>";
+        echo "<td><a class='del' href='../Database/delete.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&SDate={$row['StartDate']}&EDate={$row['EndDate']}&STime={$row['StartTime']}&ETime={$row['EndTime']}&table_name=Schedule'>DELETE</a> </td>";
+        echo "<td><a class='edit' href='../Database/delete.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&SDate={$row['StartDate']}&EDate={$row['EndDate']}&STime={$row['StartTime']}&ETime={$row['EndTime']}&table_name=Schedule'>EDIT</a> </td>";
         echo "</tr>";
       }
       echo "</table>";

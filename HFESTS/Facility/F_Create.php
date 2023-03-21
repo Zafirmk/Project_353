@@ -1,74 +1,24 @@
 <html>
 
 <head>
-  <title>Delete Facility</title>
+  <title>Insert Facility</title>
   <link rel="stylesheet" href="../style.css" />
 </head>
 
 <body>
   <div class="topnav">
     <a href="../index.php">Home</a>
-
-    <div class="dropdown">
-      <button class="dropbtn">Employees_Managers
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="../Employees_Managers/E_Create.php">CREATE</a>
-        <a href="../Employees_Managers/E_Delete.php">DELETE</a>
-        <a href="../Employees_Managers/E_Query.php">QUERY</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn" style="color: #486ce4;font-weight: bold">Facility
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="F_Create.php">CREATE</a>
-        <a href="F_Delete.php">DELETE</a>
-        <a href="F_Query.php">QUERY</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn">Vaccination
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="../Vaccination/V_Create.php">CREATE</a>
-        <a href="../Vaccination/V_Delete.php">DELETE</a>
-        <a href="../Vaccination/V_Query.php">QUERY</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn">Infection
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="../Infection/I_Create.php">CREATE</a>
-        <a href="../Infection/I_Delete.php">DELETE</a>
-        <a href="../Infection/I_Query.php">QUERY</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn">Schedule
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="../Schedule/S_Create.php">CREATE</a>
-        <a href="../Schedule/S_Delete.php">DELETE</a>
-        <a href="../Schedule/S_Query.php">QUERY</a>
-      </div>
-    </div>
+    <a href="../Employees_Managers/E_Table.php">Employees_Managers</a>
+    <a href="F_Table.php" style="color: #486ce4;font-weight: bold">Facility</a>
+    <a href="../Vaccination/V_Table.php">Vaccination</a>
+    <a href="../Infection/I_Table.php">Infection</a>
+    <a href="../Schedule/S_Table.php">Schedule</a>
   </div>
 
   <h2>Insert Row into Facility</h2>
 
   <div class="form">
-    <form action="/action_page.php">
+    <form class="input" action="../Database/insert.php">
       <table>
         <tr>
           <td><label for="fid">Facility ID</label></td>

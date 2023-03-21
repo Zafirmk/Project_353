@@ -23,50 +23,24 @@ h5 {
   color: rgb(92, 92, 92);
 }
 
-a {
-  color: red;
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  padding: 10px 16px;
-  background-color: inherit;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0 3px 8px rgba(83, 124, 228, 0.24);
-  border-radius: 5px;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  float: none;
-  color: #02123b;
-  padding: 12px 16px;
+table.gridtable a.del {
+  color: white;
+  background-color: red;
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
   text-decoration: none;
-  display: block;
-  text-align: left;
+  border-radius: 2.5px;
 }
 
-.dropdown-content a:hover {
-  color: #486ce4;
-  background-color: #afb3be46;
-  border-radius: 5px;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
+table.gridtable a.edit {
+  color: white;
+  background-color: rgb(29, 136, 127);
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-decoration: none;
+  border-radius: 2.5px;
 }
 
 table.gridtable {
@@ -113,6 +87,7 @@ input[type="submit"] {
   border: 1px solid #204ccc;
   padding: 10px;
   background-color: #204ccc;
+  box-shadow: 0 3px 8px rgba(83, 124, 228, 0.24);
   color: white;
   width: 100px;
   border-radius: 5px;
@@ -131,7 +106,7 @@ div.form {
   text-align: center;
 }
 
-form {
+.input {
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
@@ -140,4 +115,17 @@ form {
   background-color: #afb6cc25;
   padding: 20px;
   border-radius: 10px;
+}
+
+.insert {
+  border: 1px solid #204ccc;
+  padding: 10px;
+  background-color: #204ccc;
+  color: white;
+  box-shadow: 0 3px 8px rgba(83, 124, 228, 0.24);
+  border-radius: 5px;
+}
+
+.insert:hover {
+  background-color: #081f64;
 }
