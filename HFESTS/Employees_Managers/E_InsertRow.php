@@ -24,12 +24,12 @@
           <td><label for="eid">Employee ID</label></td>
           <td><input type="text" id="eid" name="eid" placeholder="Employee ID"></td>
           <td><label for="fname">First Name</label></td>
-          <td><input type="text" id="fname" name="firstname" placeholder="First Name"></td>
+          <td><input type="text" id="fname" name="fname" placeholder="First Name"></td>
         </tr>
 
         <tr>
           <td><label for="lname">Last Name</label></td>
-          <td><input type="text" id="lname" name="lastname" placeholder="Last Name"></td>
+          <td><input type="text" id="lname" name="lname" placeholder="Last Name"></td>
           <td><label for="dob">Date Of Birth</label></td>
           <td><input type="text" id="dob" name="dob" placeholder="DOB"></td>
         </tr>
