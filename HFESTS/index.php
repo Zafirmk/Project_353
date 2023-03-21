@@ -25,7 +25,10 @@
     <a href="Queries/Q6.php">All Facilities sorted in ascending order by province, then by city, then by type, then by number of employees currently working for the facility.</a>
     </br>
     </br>
-    <a href="Queries/Q7.php">All Employees working in specific facility sorted in ascending order by role, then by first name, then by last name.</a>
+    <a href="Queries/Q7.php?">All Employees working in specific facility sorted in ascending order by role, then by first name, then by last name.</a>
+    </br>
+    </br>
+    <a href="Queries/Q8.php?"></a>
   </div>
 
 </body>

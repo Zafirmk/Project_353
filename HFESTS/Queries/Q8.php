@@ -18,17 +18,17 @@
   <h2>All Employees working in specific facility sorted in ascending order by role, then by first name, then by last name.</h2>
 
   <?php
-  $FID = "";
+  $EID = "";
   ?>
 
   <form>
-    <label for='fname'>Facility ID:</label>
-    <input type='text' id='FacilityID' name='FacilityID' value="<?php echo $FID; ?>">
+    <label for='fname'>Employee ID:</label>
+    <input type='text' id='EmployeeID' name='EmployeeID' value="<?php echo $EID; ?>">
   </form>
 
   <?php
   include '../Database/queries.php';
-  Q7();
+  Q8();
   ?>
 
 </body>

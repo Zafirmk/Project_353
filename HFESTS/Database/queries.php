@@ -4,77 +4,51 @@
   function Q6()
   {
     global $conn;
-    echo "<h2>All Facilities in ascending order by province, then by city, then by type, then by number of employees currently working for the facility</h2>";
-
-    if ($result = mysqli_query($conn, "SELECT * FROM Facility ORDER BY Province ASC, City ASC, Type ASC;")) {
-      echo "<table class='gridTable'><tr>";
-      echo "<th>" .  'Name' . "</th>";
-      echo "<th>" .  'Address' . "</th>";
-      echo "<th>" .  'City' . "</th>";
-      echo "<th>" .  'Province' . "</th>";
-      echo "<th>" .  'PostalCode' . "</th>";
-      echo "<th>" .  'PhoneNumber' . "</th>";
-      echo "<th>" .  'WebAddress' . "</th>";
-      echo "<th>" .  'Type' . "</th>";
-      echo "<th>" .  'Capacity' . "</th>";
-      echo "</tr>";
-
-      while ($row = mysqli_fetch_array($result)) {
-        echo "<tr>";
-        echo "<td>" .  $row['Name'] . "</td>";
-        echo "<td>" .  $row['Address'] . "</td>";
-        echo "<td>" .  $row['City'] . "</td>";
-        echo "<td>" .  $row['Province'] . "</td>";
-        echo "<td>" .  $row['PostalCode'] . "</td>";
-        echo "<td>" .  $row['PhoneNumber'] . "</td>";
-        echo "<td>" .  $row['WebAddress'] . "</td>";
-        echo "<td>" .  $row['Type'] . "</td>";
-        echo "<td>" .  $row['Capacity'] . "</td>";
-        echo "</tr>";
-      }
-      echo "</table>";
-
-      echo "<h5 class='row_amount'>Total of {$result->num_rows} rows</h5>";
-    }
   }
 
   function Q7()
   {
     global $conn;
-    echo "<h2>All Employees working in specific facility sorted in ascending order by role, then by first name, then by last name.</h2>";
-    echo "<label for='fname'>Facility ID:</label><input type='text' id='FID' name='FID'><br><br>";
 
+    if (isset($_GET['FacilityID'])) {
+      $query = "SELECT E.FirstName, E.LastName, E.DateOfBirth, E.MedicareCardNumber, E.TelephoneNumber, E.Address, E.City, E.Province, E.PostalCode, E.Citizenship, E.EmailAddress, S.StartDate FROM Employees_Managers as E INNER JOIN Schedule as S ON E.EmployeeID = S.EmployeeID WHERE EndDate IS NULL AND FacilityID = {$_GET['FacilityID']} ORDER BY Role ASC,  FirstName ASC, LastName ASC;";
 
-    if ($result = mysqli_query($conn, "SELECT * FROM Facility ORDER BY Province ASC, City ASC, Type ASC;")) {
-      echo "<table class='gridTable'><tr>";
-      echo "<th>" .  'Name' . "</th>";
-      echo "<th>" .  'Address' . "</th>";
-      echo "<th>" .  'City' . "</th>";
-      echo "<th>" .  'Province' . "</th>";
-      echo "<th>" .  'PostalCode' . "</th>";
-      echo "<th>" .  'PhoneNumber' . "</th>";
-      echo "<th>" .  'WebAddress' . "</th>";
-      echo "<th>" .  'Type' . "</th>";
-      echo "<th>" .  'Capacity' . "</th>";
-      echo "</tr>";
-
-      while ($row = mysqli_fetch_array($result)) {
-        echo "<tr>";
-        echo "<td>" .  $row['Name'] . "</td>";
-        echo "<td>" .  $row['Address'] . "</td>";
-        echo "<td>" .  $row['City'] . "</td>";
-        echo "<td>" .  $row['Province'] . "</td>";
-        echo "<td>" .  $row['PostalCode'] . "</td>";
-        echo "<td>" .  $row['PhoneNumber'] . "</td>";
-        echo "<td>" .  $row['WebAddress'] . "</td>";
-        echo "<td>" .  $row['Type'] . "</td>";
-        echo "<td>" .  $row['Capacity'] . "</td>";
+      if ($result = mysqli_query($conn, $query)) {
+        echo "<table class='gridTable'><tr>";
+        echo "<th>" .  'FirstName' . "</th>";
+        echo "<th>" .  'LastName' . "</th>";
+        echo "<th>" .  'DateOfBirth' . "</th>";
+        echo "<th>" .  'MedicareCardNumber' . "</th>";
+        echo "<th>" .  'TelephoneNumber' . "</th>";
+        echo "<th>" .  'Address' . "</th>";
+        echo "<th>" .  'City' . "</th>";
+        echo "<th>" .  'Province' . "</th>";
+        echo "<th>" .  'PostalCode' . "</th>";
+        echo "<th>" .  'Citizenship' . "</th>";
+        echo "<th>" .  'EmailAddress' . "</th>";
+        echo "<th>" .  'StartDate' . "</th>";
         echo "</tr>";
-      }
-      echo "</table>";
 
-      echo "<h5 class='row_amount'>Total of {$result->num_rows} rows</h5>";
+        while ($row = mysqli_fetch_array($result)) {
+          echo "<tr>";
+
+          for ($i = 0; $i < 12; $i++) {
+            echo "<td>" .  $row[$i] . "</td>";
+          }
+          echo "</tr>";
+        }
+        echo "</table>";
+        echo "<h5 class='row_amount'>Total of {$result->num_rows} rows</h5>";
+      } else {
+        echo "<script type='text/javascript'>alert('ERROR: Invalid type for Facility ID');";
+        echo "</script>";
+      }
     }
+  }
+
+  function Q8()
+  {
+    global $conn;
   }
 
   ?>
