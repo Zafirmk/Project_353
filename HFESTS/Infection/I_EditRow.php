@@ -15,7 +15,7 @@
     <a href="../Schedule/S_Table.php">Schedule</a>
   </div>
 
-  <h2>Insert Row into Infection</h2>
+  <h2>Edit Row</h2>
 
   <div class="form">
     <form class="input" action="../Database/edit.php">

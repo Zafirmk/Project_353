@@ -90,6 +90,9 @@
         echo "<td>" .  $row['WebAddress'] . "</td>";
         echo "<td>" .  $row['Type'] . "</td>";
         echo "<td>" .  $row['Capacity'] . "</td>";
+
+        //echo "<form action='../Database/delete.php'><input type='hidden' name='table_name' value='abc'/><input type='submit' value='Submit'/></form>";
+
         echo "<td><a class='del' href='../Database/delete.php?FID={$row['FacilityID']}&Name={$row['Name']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&PN={$row['PhoneNumber']}&WA={$row['WebAddress']}&Type={$row['Type']}&Cap={$row['Capacity']}&table_name=Facility'>DELETE</a> </td>";
         echo "<td><a class='edit' href='../Database/edit.php?FID={$row['FacilityID']}&Name={$row['Name']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&PN={$row['PhoneNumber']}&WA={$row['WebAddress']}&Type={$row['Type']}&Cap={$row['Capacity']}&table_name=Facility'>EDIT</a> </td>";
         echo "</tr>";

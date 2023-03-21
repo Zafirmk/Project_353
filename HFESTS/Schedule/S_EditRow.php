@@ -15,7 +15,7 @@
     <a href="S_Table.php" style="color: #486ce4;font-weight: bold">Schedule</a>
   </div>
 
-  <h2>Insert Row into Schedule</h2>
+  <h2>Edit Row</h2>
 
   <div class="form">
     <form class="input" action="../Database/edit.php">

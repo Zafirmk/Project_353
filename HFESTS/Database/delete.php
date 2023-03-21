@@ -1,8 +1,6 @@
   <?php
   include_once 'config.php';
 
-  echo $EID;
-
   /*
   if ($_GET['table_name'] == 'Employees_Managers') {
     $sql = "DELETE FROM Employees_Managers WHERE EmployeeID='{$_GET["EID"]}' AND FirstName='{$_GET['FN']}' AND LastName='{$_GET["LN"]}' AND DateOfBirth='{$_GET["DOB"]}' AND MedicareCardNumber='{$_GET["MCN"]}' AND TelephoneNumber='{$_GET["Tel"]}' AND Address='{$_GET["Add"]}' AND City='{$_GET["City"]}' AND Province='{$_GET["Prov"]}' AND PostalCode='{$_GET["PC"]}' AND Citizenship='{$_GET["CS"]}' AND EmailAddress='{$_GET["EA"]}' AND Role='{$_GET["Role"]}' AND Is_Manager='{$_GET["IM"]}'";
@@ -20,7 +18,7 @@
     $sql = "DELETE FROM Infection WHERE EmployeeID='{$_GET["EID"]}' AND FacilityID='{$_GET["FID"]}' AND StartDate='{$_GET["SDate"]}' AND EndDate='{$_GET["EDate"]}' AND StartTime='{$_GET["STime"]}' AND EndTime='{$_GET["ETime"]}'";
     $URLpath = "../Schedule/S_Table.php";
   }
-  
+
   if (mysqli_query($conn, $sql)) {
     echo "<script language='javascript'>";
     echo 'alert("Record deleted successfully");';

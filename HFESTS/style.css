@@ -19,6 +19,10 @@ body {
   font-size: 17px;
 }
 
+h3 {
+  font-size: medium;
+}
+
 h5 {
   color: rgb(92, 92, 92);
 }
@@ -117,15 +121,19 @@ div.form {
   border-radius: 10px;
 }
 
-.insert {
+.insert,
+.display {
   border: 1px solid #204ccc;
   padding: 10px;
   background-color: #204ccc;
   color: white;
   box-shadow: 0 3px 8px rgba(83, 124, 228, 0.24);
   border-radius: 5px;
+  display: inline-block;
 }
 
-.insert:hover {
+.insert:hover,
+.display:hover {
   background-color: #081f64;
+  display: inline-block;
 }

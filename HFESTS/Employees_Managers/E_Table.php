@@ -23,6 +23,10 @@
   <form action="./E_InsertRow.php">
     <button class="button insert">Insert Row</button>
   </form>
+
+  <form action="./F_DisplayRow.php">
+    <button class="button display">Display Specific Row</button>
+  </form>
 </body>
 
 </html>
