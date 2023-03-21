@@ -20,7 +20,7 @@
   getAllVaccination();
   ?>
 
-  <form action="./V_Create.php">
+  <form action="./V_InsertRow.php">
     <button class="button insert">Insert Row</button>
   </form>
 </body>

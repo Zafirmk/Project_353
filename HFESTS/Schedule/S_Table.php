@@ -20,7 +20,7 @@
   getAllSchedule();
   ?>
 
-  <form action="./S_Create.php">
+  <form action="./S_InsertRow.php">
     <button class="button insert">Insert Row</button>
   </form>
 </body>

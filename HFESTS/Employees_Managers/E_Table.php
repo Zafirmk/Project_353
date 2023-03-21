@@ -20,7 +20,7 @@
   getAllEmployees_Managers();
   ?>
 
-  <form action="./E_Create.php">
+  <form action="./E_InsertRow.php">
     <button class="button insert">Insert Row</button>
   </form>
 </body>

@@ -20,7 +20,7 @@
   getAllInfection();
   ?>
 
-  <form action="./I_Create.php">
+  <form action="./I_InsertRow.php">
     <button class="button insert">Insert Row</button>
   </form>
 </body>

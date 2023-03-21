@@ -18,14 +18,15 @@
     $URLpath = "../Schedule/S_Table.php";
   }
 
+
   if (mysqli_query($conn, $sql)) {
     echo "<script language='javascript'>";
-    echo 'alert("Record deleted successfully");';
+    echo 'alert("Record inserted successfully");';
     echo 'window.location.replace("' . $URLpath . '");';
     echo "</script>";
   } else {
     $message = "ERROR: " . mysqli_error($conn);
-    echo "<script type='text/javascript'>alert('$message');"; # BUG!!
+    echo "<script type='text/javascript'>alert('$message');";
     echo 'window.location.replace("' . $URLpath . '");';
     echo "</script>";
   }

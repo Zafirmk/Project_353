@@ -20,7 +20,7 @@
   getAllFacility();
   ?>
 
-  <form action="./F_Create.php">
+  <form action="./F_InsertRow.php">
     <button class="button insert">Insert Row</button>
   </form>
 

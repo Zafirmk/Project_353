@@ -43,6 +43,7 @@
         echo "<td>" .  $row['EmailAddress'] . "</td>";
         echo "<td>" .  $row['Role'] . "</td>";
         echo "<td>" .  $row['Is_Manager'] . "</td>";
+
         echo "<td><a class='del' href='../Database/delete.php?EID={$row['EmployeeID']}&FN={$row['FirstName']}&LN={$row['LastName']}&DOB={$row['DateOfBirth']}&MCN={$row['MedicareCardNumber']}&Tel={$row['TelephoneNumber']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&CS={$row['Citizenship']}&EA={$row['EmailAddress']}&Role={$row['Role']}&IM={$row['Is_Manager']}&table_name=Employees_Managers'>DELETE</a> </td>";
         echo "<td><a class='edit' href='../Database/edit.php?EID={$row['EmployeeID']}&FN={$row['FirstName']}&LN={$row['LastName']}&DOB={$row['DateOfBirth']}&MCN={$row['MedicareCardNumber']}&Tel={$row['TelephoneNumber']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&CS={$row['Citizenship']}&EA={$row['EmailAddress']}&Role={$row['Role']}&IM={$row['Is_Manager']}&table_name=Employees_Managers'>EDIT</a> </td>";
         echo "</tr>";
@@ -90,7 +91,7 @@
         echo "<td>" .  $row['Type'] . "</td>";
         echo "<td>" .  $row['Capacity'] . "</td>";
         echo "<td><a class='del' href='../Database/delete.php?FID={$row['FacilityID']}&Name={$row['Name']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&PN={$row['PhoneNumber']}&WA={$row['WebAddress']}&Type={$row['Type']}&Cap={$row['Capacity']}&table_name=Facility'>DELETE</a> </td>";
-        echo "<td><a class='edit' href='../Database/delete.php?FID={$row['FacilityID']}&Name={$row['Name']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&PN={$row['PhoneNumber']}&WA={$row['WebAddress']}&Type={$row['Type']}&Cap={$row['Capacity']}&table_name=Facility'>EDIT</a> </td>";
+        echo "<td><a class='edit' href='../Database/edit.php?FID={$row['FacilityID']}&Name={$row['Name']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&PN={$row['PhoneNumber']}&WA={$row['WebAddress']}&Type={$row['Type']}&Cap={$row['Capacity']}&table_name=Facility'>EDIT</a> </td>";
         echo "</tr>";
       }
       echo "</table>";
@@ -126,7 +127,7 @@
         echo "<td>" .  $row['DoseNumber'] . "</td>";
         echo "<td>" .  $row['VaccinationDate'] . "</td>";
         echo "<td><a class='del' href='../Database/delete.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&Type={$row['VaccineType']}&DN={$row['DoseNumber']}&Date={$row['VaccinationDate']}&table_name=Vaccination'>DELETE</a> </td>";
-        echo "<td><a class='edit' href='../Database/delete.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&Type={$row['VaccineType']}&DN={$row['DoseNumber']}&Date={$row['VaccinationDate']}&table_name=Vaccination'>EDIT</a> </td>";
+        echo "<td><a class='edit' href='../Database/edit.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&Type={$row['VaccineType']}&DN={$row['DoseNumber']}&Date={$row['VaccinationDate']}&table_name=Vaccination'>EDIT</a> </td>";
         echo "</tr>";
       }
       echo "</table>";
@@ -159,7 +160,7 @@
         echo "<td>" .  $row['InfectionType'] . "</td>";
         echo "<td>" .  $row['InfectionDate'] . "</td>";
         echo "<td><a class='del' href='../Database/delete.php?EID={$row['EmployeeID']}&Name={$row['InfectionName']}&Type={$row['InfectionType']}&Date={$row['InfectionDate']}&table_name=Infection'>DELETE</a> </td>";
-        echo "<td><a class='edit' href='../Database/delete.php?EID={$row['EmployeeID']}&Name={$row['InfectionName']}&Type={$row['InfectionType']}&Date={$row['InfectionDate']}&table_name=Infection'>EDIT</a> </td>";
+        echo "<td><a class='edit' href='../Database/edit.php?EID={$row['EmployeeID']}&Name={$row['InfectionName']}&Type={$row['InfectionType']}&Date={$row['InfectionDate']}&table_name=Infection'>EDIT</a> </td>";
         echo "</tr>";
       }
       echo "</table>";
@@ -196,7 +197,7 @@
         echo "<td>" .  $row['StartTime'] . "</td>";
         echo "<td>" .  $row['EndTime'] . "</td>";
         echo "<td><a class='del' href='../Database/delete.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&SDate={$row['StartDate']}&EDate={$row['EndDate']}&STime={$row['StartTime']}&ETime={$row['EndTime']}&table_name=Schedule'>DELETE</a> </td>";
-        echo "<td><a class='edit' href='../Database/delete.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&SDate={$row['StartDate']}&EDate={$row['EndDate']}&STime={$row['StartTime']}&ETime={$row['EndTime']}&table_name=Schedule'>EDIT</a> </td>";
+        echo "<td><a class='edit' href='../Database/edit.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&SDate={$row['StartDate']}&EDate={$row['EndDate']}&STime={$row['StartTime']}&ETime={$row['EndTime']}&table_name=Schedule'>EDIT</a> </td>";
         echo "</tr>";
       }
       echo "</table>";
