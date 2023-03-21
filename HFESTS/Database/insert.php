@@ -1,11 +1,6 @@
   <?php
   include_once 'config.php';
 
-  $sql = "INSERT INTO Infection VALUES ('{$_GET['eid']}', '{$_GET['name']}', '{$_GET['type']}', '{$_GET['date']}')";
-  $URLpath = "../Infection/I_Table.php";
-
-  include_once 'config.php';
-
   if ($_GET['table_name'] == 'Employees_Managers') {
     $sql = "INSERT INTO Employees_Managers VALUES ('{$_GET['eid']}', '{$_GET['fname']}', '{$_GET['lname']}', '{$_GET['dob']}', '{$_GET['mcn']}', '{$_GET['tel']}', '{$_GET['add']}', '{$_GET['city']}', '{$_GET['prov']}', '{$_GET['pc']}', '{$_GET['cs']}', '{$_GET['ea']}', '{$_GET['role']}', '{$_GET['im']}')";
     $URLpath = "../Employees_Managers/E_Table.php";
