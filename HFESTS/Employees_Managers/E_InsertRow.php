@@ -35,7 +35,7 @@
         </tr>
 
         <tr>
-          <td><label class="required" for="mcn">Medicare Card Number</label></td>
+          <td><label class="required" for="mcn">Medicare Card Number <b>(UNIQUE)</b></label></td>
           <td><input type="text" id="mcn" name="mcn" placeholder="VARIABLE"></td>
           <td><label for="tel">Telephone Number</label></td>
           <td><input type="text" id="tel" name="tel" placeholder="VARIABLE"></td>
