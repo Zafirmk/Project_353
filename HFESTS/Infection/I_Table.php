@@ -16,8 +16,8 @@
   </div>
 
   <?php
+  $tableName = "Infection";
   include '../Database/getTable.php';
-  getAllInfection();
   ?>
 
   <form action="./I_InsertRow.php">

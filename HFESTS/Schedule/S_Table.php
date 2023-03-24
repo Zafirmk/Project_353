@@ -16,8 +16,8 @@
   </div>
 
   <?php
+  $tableName = "Schedule";
   include '../Database/getTable.php';
-  getAllSchedule();
   ?>
 
   <form action="./S_InsertRow.php">

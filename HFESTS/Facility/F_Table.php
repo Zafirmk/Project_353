@@ -16,8 +16,8 @@
   </div>
 
   <?php
+  $tableName = "Facility";
   include '../Database/getTable.php';
-  getAllFacility();
   ?>
 
   <form action="./F_InsertRow.php">

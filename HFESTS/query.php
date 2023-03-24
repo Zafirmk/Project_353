@@ -15,21 +15,9 @@
     <a href="Schedule/S_Table.php">Schedule</a>
   </div>
 
-  <h2>Welcome to Health Facility Employee Status Tracking System (HFESTS)</h2>
-
-  <div style="padding-top:10px;">
-    <h3>Popular Queries</h3>
-  </div>
-
-  <div style="padding-left:30px;">
-    <a href='query.php?Q=6'>All Facilities</a>
-    </br>
-    </br>
-    <a href='query.php?Q=7'>All Employees working in Facility Saint Mary's Hospital</a>
-    </br>
-    </br>
-    <a href='query.php?Q=8'>Q8</a>
-  </div>
+  <?php
+  include 'Database/queries.php';
+  ?>
 
 </body>
 

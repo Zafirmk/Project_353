@@ -16,8 +16,8 @@
   </div>
 
   <?php
+  $tableName = "Vaccination";
   include '../Database/getTable.php';
-  getAllVaccination();
   ?>
 
   <form action="./V_InsertRow.php">

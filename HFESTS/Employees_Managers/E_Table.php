@@ -16,8 +16,8 @@
   </div>
 
   <?php
+  $tableName = "Employees_Managers";
   include '../Database/getTable.php';
-  getAllEmployees_Managers();
   ?>
 
   <form action="./E_InsertRow.php">
