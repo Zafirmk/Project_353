@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>Delete Infection</title>
+  <title>Insert Infection</title>
   <link rel="stylesheet" href="../style.css" />
 </head>
 
@@ -21,20 +21,21 @@
     <form class="input" action="../Database/insert.php">
       <table>
         <tr>
-          <td><label for="eid">Employee ID</label></td>
-          <td><input type="text" id="eid" name="eid" placeholder="Employee ID"></td>
-          <td><label for="name">Infection Name</label></td>
-          <td><input type="text" id="name" name="name" placeholder="Infection Name"></td>
+          <td><label class="required" for="eid">Employee ID</label></td>
+          <td><input type="text" id="eid" name="eid" placeholder="INTEGER"></td>
+          <td><label class="required" for="name">Infection Name</label></td>
+          <td><input type="text" id="name" name="name" placeholder="VARIABLE"></td>
         </tr>
 
         <tr>
-          <td><label for="type">Infection Type</label></td>
-          <td><input type="text" id="type" name="type" placeholder="Infection Type"></td>
-          <td><label for="date">Infection Date</label></td>
-          <td><input type="text" id="date" name="date" placeholder="Infection Date"></td>
+          <td><label class="required" for="type">Infection Type</label></td>
+          <td><input type="text" id="type" name="type" placeholder="VARIABLE"></td>
+          <td><label class="required" for="date">Infection Date</label></td>
+          <td><input type="text" id="date" name="date" placeholder="DATE"></td>
         </tr>
 
       </table>
+      <p class="info">The combination of Employee ID and Infection Date MUST BE UNIQUE!</p>
       <input type="submit" value="Submit">
       <input type="hidden" name="table_name" value="Infection" />
     </form>

@@ -26,7 +26,6 @@
 
     while ($row = mysqli_fetch_array($result)) {
       echo "<tr>";
-      echo "<tr>";
 
       for ($i = 0; $i < count($columns); $i++) {
         echo "<td>" .  $row[$i] . "</td>";
@@ -34,26 +33,32 @@
 
       // DELETE/EDIT button
       if ($tableName == "Employees_Managers") {
-        echo "<td><a class='del' href='../Database/delete.php?EID={$row['EmployeeID']}&FN={$row['FirstName']}&LN={$row['LastName']}&DOB={$row['DateOfBirth']}&MCN={$row['MedicareCardNumber']}&Tel={$row['TelephoneNumber']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&CS={$row['Citizenship']}&EA={$row['EmailAddress']}&Role={$row['Role']}&IM={$row['Is_Manager']}&table_name=Employees_Managers'>DELETE</a> </td>";
-        echo "<td><a class='edit' href='../Database/edit.php?EID={$row['EmployeeID']}&FN={$row['FirstName']}&LN={$row['LastName']}&DOB={$row['DateOfBirth']}&MCN={$row['MedicareCardNumber']}&Tel={$row['TelephoneNumber']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&CS={$row['Citizenship']}&EA={$row['EmailAddress']}&Role={$row['Role']}&IM={$row['Is_Manager']}&table_name=Employees_Managers'>EDIT</a> </td>";
+        $variablesToPass = "EID=" . urlencode($row[0]) . "&FN=" . urlencode($row[1]) . "&LN=" . urlencode($row[2]) . "&DOB=" . urlencode($row[3]) . "&MCN=" . urlencode($row[4]) . " &Tel=" . urlencode($row[5]) . "&Add=" . urlencode($row[6]) . " &City=" . urlencode($row[7]) . "&Prov=" . urlencode($row[8]) . " &PC=" . urlencode($row[9]) . "&CS=" . urlencode($row[10]) . " &EA=" . urlencode($row[11]) . "&Role=" . urlencode($row[12]) . " &IM=" . urlencode($row[13]);
+        echo "<td><a class='del' href='../Database/delete.php?" . $variablesToPass . "&tableName=Employees_Managers'>DELETE</a> </td>";
+        echo "<td><a class='edit' href='../Database/edit.php?" . $variablesToPass . "&tableName=Employees_Managers'>EDIT</a> </td>";
       } else if ($tableName == "Facility") {
-        echo "<td><a class='del' href='../Database/delete.php?FID={$row['FacilityID']}&Name={$row['Name']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&PN={$row['PhoneNumber']}&WA={$row['WebAddress']}&Type={$row['Type']}&Cap={$row['Capacity']}&table_name=Facility'>DELETE</a> </td>";
-        echo "<td><a class='edit' href='../Database/edit.php?FID={$row['FacilityID']}&Name={$row['Name']}&Add={$row['Address']}&City={$row['City']}&Prov={$row['Province']}&PC={$row['PostalCode']}&PN={$row['PhoneNumber']}&WA={$row['WebAddress']}&Type={$row['Type']}&Cap={$row['Capacity']}&table_name=Facility'>EDIT</a> </td>";
+        $variablesToPass = "FID=" . urlencode($row[0]) . "&Name=" . urlencode($row[1]) . "&Add=" . urlencode($row[2]) . "&City=" . urlencode($row[3]) . "&Prov=" . urlencode($row[4]) . " &PC=" . urlencode($row[5]) . "&PN=" . urlencode($row[6]) . " &WA=" . urlencode($row[7]) . "&Type=" . urlencode($row[8]) . " &Cap=" . urlencode($row[9]);
+        echo "<td><a class='del' href='../Database/delete.php?" . $variablesToPass . "&tableName=Facility'>DELETE</a></td>";
+        echo "<td><a class='edit' href='../Database/edit.php?" . $variablesToPass . "&tableName=Facility'>EDIT</a></td>";
       } else if ($tableName == 'Vaccination') {
-        echo "<td><a class='del' href='../Database/delete.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&Type={$row['VaccineType']}&DN={$row['DoseNumber']}&Date={$row['VaccinationDate']}&table_name=Vaccination'>DELETE</a> </td>";
-        echo "<td><a class='edit' href='../Database/edit.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&Type={$row['VaccineType']}&DN={$row['DoseNumber']}&Date={$row['VaccinationDate']}&table_name=Vaccination'>EDIT</a> </td>";
+        $variablesToPass = "EID=" . urlencode($row[0]) . "&FID=" . urlencode($row[1]) . "&Type=" . urlencode($row[2]) . "&DN=" . urlencode($row[3]) . "&Date=" . urlencode($row[4]);
+        echo "<td><a class='del' href='../Database/delete.php?" . $variablesToPass . "&tableName=Vaccination'>DELETE</a></td>";
+        echo "<td><a class='edit' href='../Database/edit.php?" . $variablesToPass . "&tableName=Vaccination'>EDIT</a></td>";
       } else if ($tableName == "Infection") {
-        echo "<td><a class='del' href='../Database/delete.php?EID={$row['EmployeeID']}&Name={$row['InfectionName']}&Type={$row['InfectionType']}&Date={$row['InfectionDate']}&table_name=Infection'>DELETE</a> </td>";
-        echo "<td><a class='edit' href='../Database/edit.php?EID={$row['EmployeeID']}&Name={$row['InfectionName']}&Type={$row['InfectionType']}&Date={$row['InfectionDate']}&table_name=Infection'>EDIT</a> </td>";
-      } else {
-        echo "<td><a class='del' href='../Database/delete.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&SDate={$row['StartDate']}&EDate={$row['EndDate']}&STime={$row['StartTime']}&ETime={$row['EndTime']}&table_name=Schedule'>DELETE</a> </td>";
-        echo "<td><a class='edit' href='../Database/edit.php?EID={$row['EmployeeID']}&FID={$row['FacilityID']}&SDate={$row['StartDate']}&EDate={$row['EndDate']}&STime={$row['StartTime']}&ETime={$row['EndTime']}&table_name=Schedule'>EDIT</a> </td>";
+        $variablesToPass = "EID=" . urlencode($row[0]) . "&Name=" . urlencode($row[1]) . "&Type=" . urlencode($row[2]) . "&Date=" . urlencode($row[3]);
+        echo "<td><a class='del' href='../Database/delete.php?" . $variablesToPass . "&tableName=Infection'>DELETE</a> </td>";
+        echo "<td><a class='edit' href='../Database/edit.php?" . $variablesToPass . "&tableName=Infection'>EDIT</a> </td>";
+      } else { // schedule table
+        $variablesToPass = "EID=" . urlencode($row[0]) . "&FID=" . urlencode($row[1]) . "&SDate=" . urlencode($row[2]) . "&EDate=" . urlencode($row[3]) . "&STime=" . urlencode($row[4]) . "&ETime=" . urlencode($row[5]);
+        echo "<td><a class='del' href='../Database/delete.php?" . $variablesToPass . "&tableName=Schedule'>DELETE</a> </td>";
+        echo "<td><a class='edit' href='../Database/edit.php?" . $variablesToPass . "&tableName=Schedule'>EDIT</a> </td>";
       }
 
       echo "</tr>";
     }
     echo "</table>";
-
     echo "<h5 class='row_amount'>Total of {$result->num_rows} rows</h5>";
   }
+
+  mysqli_close($conn); // closing connection after printing table
   ?>

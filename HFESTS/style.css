@@ -137,3 +137,14 @@ div.form {
   background-color: #081f64;
   display: inline-block;
 }
+
+.required:after {
+  content: " *";
+  color: red;
+}
+
+.info {
+  color: red;
+  font-size: 12px;
+  margin-left: 4px;
+}

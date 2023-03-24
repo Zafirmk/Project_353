@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>Employees_Managers Table</title>
+  <title>Insert Employees_Managers</title>
   <link rel="stylesheet" href="../style.css" />
 </head>
 
@@ -21,54 +21,63 @@
     <form class="input" action="../Database/insert.php">
       <table>
         <tr>
-          <td><label for="eid">Employee ID</label></td>
-          <td><input type="text" id="eid" name="eid" placeholder="Employee ID"></td>
-          <td><label for="fname">First Name</label></td>
-          <td><input type="text" id="fname" name="fname" placeholder="First Name"></td>
+          <td><label class="required" for="eid">Employee ID <b>(UNIQUE)</b></label></td>
+          <td><input type="text" id="eid" name="eid" placeholder="INTEGER"></td>
+          <td><label class="required" for="fname">First Name</label></td>
+          <td><input type="text" id="fname" name="fname" placeholder="VARIABLE"></td>
         </tr>
 
         <tr>
-          <td><label for="lname">Last Name</label></td>
-          <td><input type="text" id="lname" name="lname" placeholder="Last Name"></td>
-          <td><label for="dob">Date Of Birth</label></td>
-          <td><input type="text" id="dob" name="dob" placeholder="DOB"></td>
+          <td><label class="required" for="lname">Last Name</label></td>
+          <td><input type="text" id="lname" name="lname" placeholder="VARIABLE"></td>
+          <td><label class="required" for="dob">Date Of Birth</label></td>
+          <td><input type="text" id="dob" name="dob" placeholder="DATE"></td>
         </tr>
 
         <tr>
-          <td><label for="mcn">Medicare Card Number</label></td>
-          <td><input type="text" id="mcn" name="mcn" placeholder="Medicare Card Number"></td>
+          <td><label class="required" for="mcn">Medicare Card Number</label></td>
+          <td><input type="text" id="mcn" name="mcn" placeholder="VARIABLE"></td>
           <td><label for="tel">Telephone Number</label></td>
-          <td><input type="text" id="tel" name="tel" placeholder="Telephone Number"></td>
+          <td><input type="text" id="tel" name="tel" placeholder="VARIABLE"></td>
         </tr>
 
         <tr>
           <td><label for="add">Address</label></td>
-          <td><input type="text" id="add" name="add" placeholder="Address"></td>
+          <td><input type="text" id="add" name="add" placeholder="VARIABLE"></td>
           <td><label for="city">City</label></td>
-          <td><input type="text" id="city" name="city" placeholder="City"></td>
+          <td><input type="text" id="city" name="city" placeholder="VARIABLE"></td>
         </tr>
 
         <tr>
           <td><label for="prov">Province</label></td>
-          <td><input type="text" id="prov" name="prov" placeholder="Province"></td>
+          <td><input type="text" id="prov" name="prov" placeholder="VARIABLE"></td>
           <td><label for="pc">Postal Code</label></td>
-          <td><input type="text" id="pc" name="pc" placeholder="Postal Code"></td>
+          <td><input type="text" id="pc" name="pc" placeholder="VARIABLE"></td>
         </tr>
 
         <tr>
-          <td><label for="cs">Citizenship</label></td>
-          <td><input type="text" id="cs" name="cs" placeholder="Citizenship"></td>
+          <td><label class="required" for="cs">Citizenship</label></td>
+          <td><input type="text" id="cs" name="cs" placeholder="VARIABLE"></td>
           <td><label for="ea">Email Address</label></td>
-          <td><input type="text" id="ea" name="ea" placeholder="Email Address"></td>
+          <td><input type="text" id="ea" name="ea" placeholder="VARIABLE"></td>
         </tr>
 
         <tr>
-          <td><label for="role">Role</label></td>
+          <td><label class="required" for="role">Role</label></td>
           <td>
-            <input type="text" id="role" name="role" placeholder="Role">
+            <input type="text" id="role" name="role" placeholder="VARIABLE">
           </td>
-          <td><label for="im">Is Manager</label></td>
-          <td> <input type="text" id="im" name="im" placeholder="Is Manager"></td>
+          <td><label class="required" for="im">Is Manager</label>
+          </td>
+          <td> <input type="text" id="im" name="im" placeholder="0 OR 1"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <p class="info">where 1 = manager</p>
+          </td>
         </tr>
       </table>
       <input type="submit" value="Submit">

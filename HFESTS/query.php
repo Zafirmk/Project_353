@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>HFESTS Home</title>
+  <title>Popular Query</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 

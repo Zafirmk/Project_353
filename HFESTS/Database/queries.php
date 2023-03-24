@@ -29,4 +29,6 @@
     echo "</table>";
     echo "<h5 class='row_amount'>Total of {$result->num_rows} rows</h5>";
   }
+
+  mysqli_close($conn); // closing connection after printing query result
   ?>

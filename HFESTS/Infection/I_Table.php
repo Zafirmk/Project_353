@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>Delete Infection</title>
+  <title>Infection Table</title>
   <link rel="stylesheet" href="../style.css" />
 </head>
 

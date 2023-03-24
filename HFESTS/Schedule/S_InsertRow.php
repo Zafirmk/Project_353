@@ -21,27 +21,28 @@
     <form class="input" action="../Database/insert.php">
       <table>
         <tr>
-          <td><label for="eid">Employee ID</label></td>
-          <td><input type="text" id="eid" name="eid" placeholder="Employee ID"></td>
-          <td><label for="fid">Facility ID</label></td>
-          <td><input type="text" id="fid" name="fid" placeholder="Facility ID"></td>
+          <td><label class="required" for="eid">Employee ID</label></td>
+          <td><input type="text" id="eid" name="eid" placeholder="INTEGER"></td>
+          <td><label class="required" for="fid">Facility ID</label></td>
+          <td><input type="text" id="fid" name="fid" placeholder="INTEGER"></td>
         </tr>
 
         <tr>
-          <td><label for="sdate">Start Date</label></td>
-          <td><input type="text" id="sdate" name="sdate" placeholder="Start Date"></td>
+          <td><label class="required" for="sdate">Start Date</label></td>
+          <td><input type="text" id="sdate" name="sdate" placeholder="DATE"></td>
           <td><label for="edate">End Date</label></td>
-          <td><input type="text" id="edate" name="edate" placeholder="End Date"></td>
+          <td><input type="text" id="edate" name="edate" placeholder="DATE"></td>
         </tr>
 
         <tr>
-          <td><label for="stime">Start Time</label></td>
-          <td><input type="text" id="stime" name="stime" placeholder="Start Time"></td>
-          <td><label for="etime">End Date</label></td>
-          <td><input type="text" id="etime" name="etime" placeholder="End Time"></td>
+          <td><label class="required" for="stime">Start Time</label></td>
+          <td><input type="text" id="stime" name="stime" placeholder="TIME"></td>
+          <td><label class="required" for="etime">End Date</label></td>
+          <td><input type="text" id="etime" name="etime" placeholder="TIME"></td>
         </tr>
 
       </table>
+      <p class="info">The combination of Employee ID, Facility ID, Start Date and Start Time MUST BE UNIQUE!</p>
       <input type="submit" value="Submit">
       <input type="hidden" name="table_name" value="Schedule" />
     </form>

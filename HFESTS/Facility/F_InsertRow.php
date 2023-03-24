@@ -21,40 +21,42 @@
     <form class="input" action="../Database/insert.php">
       <table>
         <tr>
-          <td><label for="fid">Facility ID</label></td>
-          <td><input type="text" id="fid" name="fid" placeholder="Facility ID"></td>
-          <td><label for="name">Name</label></td>
-          <td><input type="text" id="name" name="name" placeholder="Name"></td>
+          <td><label class="required" for="fid">Facility ID <b>(UNIQUE)</b></label></td>
+          <td><input type="text" id="fid" name="fid" placeholder="INTEGER"></td>
+          <td><label class="required" for="name">Name</label></td>
+          <td><input type="text" id="name" name="name" placeholder="VARIABLE"></td>
         </tr>
 
         <tr>
-          <td><label for="add">Address</label></td>
-          <td><input type="text" id="add" name="add" placeholder="Address"></td>
-          <td><label for="city">City</label></td>
-          <td><input type="text" id="city" name="city" placeholder="City"></td>
+          <td><label class="required" for="add">Address</label></td>
+          <td><input type="text" id="add" name="add" placeholder="VARIABLE"></td>
+          <td><label class="required" for="city">City</label></td>
+          <td><input type="text" id="city" name="city" placeholder="VARIABLE"></td>
         </tr>
 
         <tr>
-          <td><label for="prov">Province</label></td>
-          <td><input type="text" id="prov" name="prov" placeholder="Province"></td>
-          <td><label for="pc">Postal Code</label></td>
-          <td><input type="text" id="pc" name="pc" placeholder="Postal Code"></td>
+          <td><label class="required" for="prov">Province</label></td>
+          <td><input type="text" id="prov" name="prov" placeholder="VARIABLE"></td>
+          <td><label class="required" for="pc">Postal Code</label></td>
+          <td><input type="text" id="pc" name="pc" placeholder="VARIABLE"></td>
         </tr>
 
         <tr>
           <td><label for="pn">Phone Number</label></td>
-          <td><input type="text" id="pn" name="pn" placeholder="Phone Number"></td>
+          <td><input type="text" id="pn" name="pn" placeholder="VARIABLE"></td>
           <td><label for="wa">Web Address</label></td>
-          <td><input type="text" id="wa" name="wa" placeholder="Web Address"></td>
+          <td><input type="text" id="wa" name="wa" placeholder="VARIABLE"></td>
         </tr>
 
         <tr>
           <td><label for="type">Type</label></td>
           <td>
-            <input type="text" id="type" name="type" placeholder="Type">
+            <input type="text" id="type" name="type" placeholder="VARIABLE">
           </td>
-          <td><label for="cap">Capacity</label></td>
-          <td> <input type="text" id="cap" name="cap" placeholder="Capacity"></td>
+          <td>
+            <label class="required" for="cap">Capacity</label>
+          </td>
+          <td> <input type="text" id="cap" name="cap" placeholder="INTEGER"></td>
         </tr>
       </table>
       <input type="submit" value="Submit">
