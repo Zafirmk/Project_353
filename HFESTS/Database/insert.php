@@ -1,5 +1,6 @@
   <?php
   include_once 'config.php';
+  include_once 'email_infected.php';
 
   // Replacing ' with '' since SQL reads '' as '
   foreach ($_GET as $key => $value) {
@@ -24,10 +25,17 @@
   }
 
   if (mysqli_query($conn, $sql)) {
+    
     echo "<script language='javascript'>";
     echo 'alert("Record inserted successfully");';
     echo 'window.location.replace("' . $URLpath . '");';
     echo "</script>";
+
+    // Send an email to all doctors and nurses if someone on their shift got infected
+    if($_GET['table_name'] == 'Infection'){
+      emailEmployees($conn, $_GET['eid'], "'".$_GET['date']."'");
+    }
+
   } else {
     $message = "ERROR: " . mysqli_error($conn);
     if (strpos($message, "CONSTRAINT")) {
