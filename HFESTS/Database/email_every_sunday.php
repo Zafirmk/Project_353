@@ -73,12 +73,6 @@
 
         emailEmployees($conn, $Subject, $EmailBody, $To);
 
-        // echo $Subject . "<br>";
-        // echo $EmailBody;
-
-        // echo 'SENT EMAIL' . "<br>";
-        // echo '<br>';
-
     }
 
   }
