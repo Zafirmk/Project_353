@@ -10,7 +10,7 @@
   } else if ($tableName == "Infection") {
     $columns = array("EmployeeID", "InfectionName", "InfectionType", "InfectionDate");
   } else { // aka Schedule table
-    $columns = array("EmployeeID", "FacilityID", "StartDate", "EndDate", "StartTime", "EndTime");
+    $columns = array("EmployeeID", "FacilityID", "StartDate", "EndDate", "StartTime", "EndTime", "Day");
   }
 
   if ($result = mysqli_query($conn, "SELECT * FROM {$tableName}")) {
@@ -49,7 +49,7 @@
         echo "<td><a class='del' href='../Database/delete.php?" . $variablesToPass . "&tableName=Infection'>DELETE</a> </td>";
         echo "<td><a class='edit' href='../Database/edit.php?" . $variablesToPass . "&tableName=Infection'>EDIT</a> </td>";
       } else { // schedule table
-        $variablesToPass = "EID=" . urlencode($row[0]) . "&FID=" . urlencode($row[1]) . "&SDate=" . urlencode($row[2]) . "&EDate=" . urlencode($row[3]) . "&STime=" . urlencode($row[4]) . "&ETime=" . urlencode($row[5]);
+        $variablesToPass = "EID=" . urlencode($row[0]) . "&FID=" . urlencode($row[1]) . "&SDate=" . urlencode($row[2]) . "&EDate=" . urlencode($row[3]) . "&STime=" . urlencode($row[4]) . "&ETime=" . urlencode($row[5]) . "&Day=" . urlencode($row[6]);
         echo "<td><a class='del' href='../Database/delete.php?" . $variablesToPass . "&tableName=Schedule'>DELETE</a> </td>";
         echo "<td><a class='edit' href='../Database/edit.php?" . $variablesToPass . "&tableName=Schedule'>EDIT</a> </td>";
       }

@@ -41,6 +41,11 @@
           <td><input type="text" id="etime" name="etime" placeholder="TIME"></td>
         </tr>
 
+        <tr>
+          <td><label class="required" for="day">Day</label></td>
+          <td><input type="text" id="day" name="day" placeholder="VARCHAR"></td>
+        </tr>
+
       </table>
       <p class="info">The combination of Employee ID, Facility ID, Start Date and Start Time MUST BE UNIQUE!</p>
       <input type="submit" value="Submit">
