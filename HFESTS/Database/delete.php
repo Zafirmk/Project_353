@@ -19,7 +19,12 @@
     $sql = "DELETE FROM Infection WHERE EmployeeID='{$_GET["EID"]}' AND InfectionName='{$_GET["Name"]}' AND InfectionType='{$_GET["Type"]}' AND InfectionDate='{$_GET["Date"]}'";
     $URLpath = "../Infection/I_Table.php";
   } else if ($_GET['tableName'] == 'Schedule') {
-    $sql = "DELETE FROM Infection WHERE EmployeeID='{$_GET["EID"]}' AND FacilityID='{$_GET["FID"]}' AND StartDate='{$_GET["SDate"]}' AND EndDate='{$_GET["EDate"]}' AND StartTime='{$_GET["STime"]}' AND EndTime='{$_GET["ETime"]}' AND Day='{$_GET["Day"]}'";
+    /* Handling the case where the attribute is null */
+    if ($_GET["EDate"] == '') {
+      $sql = "DELETE FROM Schedule WHERE EmployeeID='{$_GET["EID"]}' AND FacilityID='{$_GET["FID"]}' AND StartDate='{$_GET["SDate"]}' AND EndDate IS NULL AND StartTime='{$_GET["STime"]}' AND EndTime='{$_GET["ETime"]}' AND Day='{$_GET["Day"]}'";
+    } else {
+      $sql = "DELETE FROM Schedule WHERE EmployeeID='{$_GET["EID"]}' AND FacilityID='{$_GET["FID"]}' AND StartDate='{$_GET["SDate"]}' AND EndDate='{$_GET["EDate"]}' AND StartTime='{$_GET["STime"]}' AND EndTime='{$_GET["ETime"]}' AND Day='{$_GET["Day"]}'";
+    }
     $URLpath = "../Schedule/S_Table.php";
   }
 

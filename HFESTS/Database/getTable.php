@@ -33,11 +33,11 @@
 
       // DELETE/EDIT button
       if ($tableName == "Employees_Managers") {
-        $variablesToPass = "EID=" . urlencode($row[0]) . "&FN=" . urlencode($row[1]) . "&LN=" . urlencode($row[2]) . "&DOB=" . urlencode($row[3]) . "&MCN=" . urlencode($row[4]) . " &Tel=" . urlencode($row[5]) . "&Add=" . urlencode($row[6]) . " &City=" . urlencode($row[7]) . "&Prov=" . urlencode($row[8]) . " &PC=" . urlencode($row[9]) . "&CS=" . urlencode($row[10]) . " &EA=" . urlencode($row[11]) . "&Role=" . urlencode($row[12]) . " &IM=" . urlencode($row[13]);
+        $variablesToPass = "EID=" . urlencode($row[0]) . "&FN=" . urlencode($row[1]) . "&LN=" . urlencode($row[2]) . "&DOB=" . urlencode($row[3]) . "&MCN=" . urlencode($row[4]) . "&Tel=" . urlencode($row[5]) . "&Add=" . urlencode($row[6]) . "&City=" . urlencode($row[7]) . "&Prov=" . urlencode($row[8]) . "&PC=" . urlencode($row[9]) . "&CS=" . urlencode($row[10]) . "&EA=" . urlencode($row[11]) . "&Role=" . urlencode($row[12]) . "&IM=" . urlencode($row[13]);
         echo "<td><a class='del' href='../Database/delete.php?" . $variablesToPass . "&tableName=Employees_Managers'>DELETE</a> </td>";
         echo "<td><a class='edit' href='../Database/edit.php?" . $variablesToPass . "&tableName=Employees_Managers'>EDIT</a> </td>";
       } else if ($tableName == "Facility") {
-        $variablesToPass = "FID=" . urlencode($row[0]) . "&Name=" . urlencode($row[1]) . "&Add=" . urlencode($row[2]) . "&City=" . urlencode($row[3]) . "&Prov=" . urlencode($row[4]) . " &PC=" . urlencode($row[5]) . "&PN=" . urlencode($row[6]) . " &WA=" . urlencode($row[7]) . "&Type=" . urlencode($row[8]) . " &Cap=" . urlencode($row[9]);
+        $variablesToPass = "FID=" . urlencode($row[0]) . "&Name=" . urlencode($row[1]) . "&Add=" . urlencode($row[2]) . "&City=" . urlencode($row[3]) . "&Prov=" . urlencode($row[4]) . "&PC=" . urlencode($row[5]) . "&PN=" . urlencode($row[6]) . "&WA=" . urlencode($row[7]) . "&Type=" . urlencode($row[8]) . "&Cap=" . urlencode($row[9]);
         echo "<td><a class='del' href='../Database/delete.php?" . $variablesToPass . "&tableName=Facility'>DELETE</a></td>";
         echo "<td><a class='edit' href='../Database/edit.php?" . $variablesToPass . "&tableName=Facility'>EDIT</a></td>";
       } else if ($tableName == 'Vaccination') {
