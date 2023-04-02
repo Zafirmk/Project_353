@@ -20,22 +20,21 @@
     $sql = "INSERT INTO Infection VALUES ({$_GET['eid']}, '{$_GET['name']}', '{$_GET['type']}', '{$_GET['date']}')";
     $URLpath = "../Infection/I_Table.php";
   } else if ($_GET['table_name'] == 'Schedule') {
-    $sql = "INSERT INTO Schedule VALUES ({$_GET['eid']}, {$_GET['fid']}, '{$_GET['sdate']}', '{$_GET['edate']}', '{$_GET['stime']}', '{$_GET['etime']}')";
+    $sql = "INSERT INTO Schedule VALUES ({$_GET['eid']}, {$_GET['fid']}, '{$_GET['sdate']}', '{$_GET['edate']}', '{$_GET['stime']}', '{$_GET['etime']}', '{$_GET['day']}')";
     $URLpath = "../Schedule/S_Table.php";
   }
 
   if (mysqli_query($conn, $sql)) {
-    
+
     echo "<script language='javascript'>";
     echo 'alert("Record inserted successfully");';
     echo 'window.location.replace("' . $URLpath . '");';
     echo "</script>";
 
     // Send an email to all doctors and nurses if someone on their shift got infected
-    if($_GET['table_name'] == 'Infection'){
-      emailEmployees($conn, $_GET['eid'], "'".$_GET['date']."'");
+    if ($_GET['table_name'] == 'Infection') {
+      emailEmployees($conn, $_GET['eid'], "'" . $_GET['date'] . "'");
     }
-
   } else {
     $message = "ERROR: " . mysqli_error($conn);
     if (strpos($message, "CONSTRAINT")) {
