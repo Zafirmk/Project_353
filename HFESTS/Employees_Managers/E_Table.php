@@ -25,8 +25,13 @@
   </form>
 
   <form action="./F_DisplayRow.php">
-    <button class="button display">Display Specific Row</button>
+    <label for="employeeID">Enter Employee ID:</label>
+    <input type="text" name="employeeID" placeholder="Enter Employee ID">
+    <div>
+      <button class="button display">Display Specific Row</button>
+    </div>
   </form>
 </body>
+
 
 </html>
