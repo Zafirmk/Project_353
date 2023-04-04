@@ -39,14 +39,14 @@
         $result3 = mysqli_query($conn, $specific_employee_query);
 
 
-        $ScheduleTable = "<table border = '1'><tr><th>Day</th><th>Start Time</th><th>End Time</th></tr>";
+        $ScheduleTable = "<table border = \"1\"><tr><th>Day</th><th>Start Time</th><th>End Time</th></tr>";
         $EmailBody = NULL;
         $Subject = NULL;
         $To = NULL;
         $days = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
 
         while($specific_employee = mysqli_fetch_array($result3)){
-            $EmailBody = "<h1 style = 'text-align:center'>Schedule Update</h1> Facility Name: " . $specific_employee['Name'] . "<br>" . "Address: " . $specific_employee['Address'] . "<br>" . "Employee Name: " . $specific_employee['FirstName'] . " " . $specific_employee['LastName'] . "<br>" . "Email Address: " . $specific_employee['EmailAddress'] . "<br>";
+            $EmailBody = "<h1 style = \"text-align:center\">Schedule Update</h1> Facility Name: " . $specific_employee['Name'] . "<br>" . "Address: " . $specific_employee['Address'] . "<br>" . "Employee Name: " . $specific_employee['FirstName'] . " " . $specific_employee['LastName'] . "<br>" . "Email Address: " . $specific_employee['EmailAddress'] . "<br>";
             $Subject = $specific_employee['Name'] . " Schedule for " . date("Y/m/d") . " to " . date("Y/m/d", strtotime("+1 week", strtotime(date("Y/m/d"))));
             $From = $specific_employee['Name'];
             $To = $specific_employee['EmailAddress'];
