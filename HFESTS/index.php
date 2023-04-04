@@ -22,13 +22,16 @@
   </div>
 
   <div style="padding-left:30px;">
-    <a href='query.php?Q=6'>All Facilities</a>
+    <a href='query.php?Q=6'>6. All Facilities</a>
     </br>
     </br>
-    <a href='query.php?Q=7'>All Employees working in Facility Saint Mary's Hospital</a>
+    <a href='query.php?Q=7'>7. All Employees working in Facility Saint Mary's Hospital</a>
     </br>
     </br>
-    <a href='query.php?Q=8'>All schedule details of Employee with ID = 3 working from 1PM to 5PM (inclusive)</a>
+    <a href='query.php?Q=8'>8. All schedule details of Employee with ID = 3 working from 1PM to 5PM (inclusive)</a>
+    </br>
+    </br>
+    <a href='query.php?Q=10'>10. All Emails sent by West Island CLSC</a>
   </div>
 
 </body>

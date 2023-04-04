@@ -11,7 +11,12 @@
     $title = "All schedule details of Employee with ID = 3 working from 1PM to 5PM (inclusive)";
     $columns = array('FirstName', 'DayOfTheYear', 'StartTime', 'EndTime');
     $query = "SELECT F.Name as FacilityName, S.StartDate as DayOfTheYear, S.StartTime, S.EndTime FROM Schedule as S INNER JOIN Facility as F ON F.FacilityID = S.FacilityID WHERE S.EmployeeID=3 AND S.StartTime >= '13:00:00' AND S.EndTime <= '17:00:00' ORDER BY F.Name ASC, S.StartDate ASC, S.StartTime ASC";
+  } else if ($_GET['Q'] == 10) {
+    $title = "All Emails sent by West Island CLSC";
+    $columns = array('DateOfEmail', 'FacilityName', 'Subject', 'Body');
+    $query = "SELECT * FROM fac353_4.Emails WHERE FacilityName = 'West Island CLSC' ORDER BY DateOfEmail;";
   }
+
 
   if ($result = mysqli_query($conn, $query)) {
     echo "<h2>{$title}</h2>";
