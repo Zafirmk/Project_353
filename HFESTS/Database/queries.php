@@ -11,7 +11,24 @@
     $title = "All schedule details of Employee with ID = 3 working from 1PM to 5PM (inclusive)";
     $columns = array('FirstName', 'DayOfTheYear', 'StartTime', 'EndTime');
     $query = "SELECT F.Name as FacilityName, S.StartDate as DayOfTheYear, S.StartTime, S.EndTime FROM Schedule as S INNER JOIN Facility as F ON F.FacilityID = S.FacilityID WHERE S.EmployeeID=3 AND S.StartTime >= '13:00:00' AND S.EndTime <= '17:00:00' ORDER BY F.Name ASC, S.StartDate ASC, S.StartTime ASC";
+  } else if ($_GET['Q'] == 10) {
+    $title = "All Emails sent by West Island CLSC";
+    $columns = array('DateOfEmail', 'FacilityName', 'Subject', 'Body');
+    $query = "SELECT * FROM Emails WHERE FacilityName = 'West Island CLSC' ORDER BY DateOfEmail;";
+  } else if ($_GET['Q'] == 16) {
+    $title = "Details of all nurses/doctors who have been infected at least three times";
+    $columns = array('FirstName', 'LastName', 'DateOfBirth', 'EmailAddress', 'Role', 'FirstDayOfWork', 'TotalScheduledHours');
+    $query = "SELECT DISTINCT E.FirstName, E.LastName, E.DateOfBirth, E.EmailAddress, E.Role, MIN(S.StartDate) AS 'FirstDayOfWork', (SELECT SUM(TIME_TO_SEC(TIMEDIFF(EndTime, StartTime))/3600) FROM Schedule WHERE EmployeeID = E.EmployeeID AND EndDate IS NULL) AS 'TotalScheduledHours' FROM Employees_Managers E INNER JOIN Infection I ON E.EmployeeID = I.EmployeeID INNER JOIN Schedule S ON E.EmployeeID = S.EmployeeID WHERE E.Is_Manager = false AND S.EndDate IS NULL GROUP BY E.EmployeeID, E.FirstName, E.LastName, E.EmailAddress, E.Role HAVING COUNT(I.EmployeeID) >= 3 AND (E.Role = 'nurse' OR E.Role = 'doctor') ORDER BY E.Role, E.FirstName, E.LastName;";
+  } else if ($_GET['Q'] == 17) {
+    $title = "Details of all nurses/doctors who have never been infected";
+    $columns = array('FirstName', 'LastName', 'DateOfBirth', 'EmailAddress', 'Role', 'FirstDayOfWork', 'TotalScheduledHours');
+    $query = "SELECT em.FirstName, em.LastName, em.DateOfBirth, em.EmailAddress, em.Role, MIN(s.StartDate) AS FirstDayOfWork, SUM(TIMESTAMPDIFF(HOUR, s.StartTime, s.EndTime)) AS TotalScheduledHours FROM Employees_Managers em INNER JOIN Schedule s ON em.EmployeeID = s.EmployeeID LEFT JOIN Is_Infected ii ON em.EmployeeID = ii.EmployeeID WHERE em.Role IN ('Nurse', 'Doctor') AND s.EndDate IS NULL AND ii.EmployeeID IS NULL GROUP BY em.EmployeeID, em.FirstName, em.LastName, em.Role ORDER BY em.Role, em.FirstName, em.LastName;";
+  } else if ($_GET['Q'] == 20) {
+    $title = "Log of all emails produced by HFESTS system";
+    $columns = array('DateOfEmail', 'FacilityName', 'Subject', 'Body');
+    $query = "SELECT * FROM Emails;";
   }
+
 
   if ($result = mysqli_query($conn, $query)) {
     echo "<h2>{$title}</h2>";
