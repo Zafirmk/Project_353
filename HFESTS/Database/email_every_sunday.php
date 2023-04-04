@@ -48,6 +48,7 @@
         while($specific_employee = mysqli_fetch_array($result3)){
             $EmailBody = "<h1 style = 'text-align:center'>Schedule Update</h1> Facility Name: " . $specific_employee['Name'] . "<br>" . "Address: " . $specific_employee['Address'] . "<br>" . "Employee Name: " . $specific_employee['FirstName'] . " " . $specific_employee['LastName'] . "<br>" . "Email Address: " . $specific_employee['EmailAddress'] . "<br>";
             $Subject = $specific_employee['Name'] . " Schedule for " . date("Y/m/d") . " to " . date("Y/m/d", strtotime("+1 week", strtotime(date("Y/m/d"))));
+            $From = $specific_employee['Name'];
             $To = $specific_employee['EmailAddress'];
         }
 
@@ -71,14 +72,14 @@
         $ScheduleTable .= "</table>";
         $EmailBody .= $ScheduleTable;
 
-        emailEmployees($conn, $Subject, $EmailBody, $To);
+        emailEmployees($conn, $Subject, $EmailBody, $From, $To);
 
     }
 
   }
 
 
-  function emailEmployees($conn, $subject, $emailbody, $to){
+  function emailEmployees($conn, $subject, $emailbody, $from, $to){
     $mail = new PHPMailer(true);
     $mail->isSMTP();
     $mail->IsHTML(true);
@@ -94,7 +95,13 @@
     $mail->addAddress($to);
   
     if ($mail->Send()) {
-      echo "Email sent <br>";
+      echo "Email sent";
+      $email_query = "INSERT INTO Emails VALUES ('" . date("Y-m-d") . "', '" . $facilityName . "', '" . $mail->Subject . "', '" . $mail->Body . "');";
+      if (mysqli_query($conn, $email_query)) {
+        echo "New record created successfully";
+      } else {
+        echo "Error: " . $email_query . "<br>" . mysqli_error($conn);
+      }
     }
     else{
       echo "Email fail";

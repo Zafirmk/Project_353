@@ -37,7 +37,6 @@
     if ($mail->Send()) {
       echo "Email sent";
       $email_query = "INSERT INTO Emails VALUES ('" . date("Y-m-d") . "', '" . $facilityName . "', '" . $mail->Subject . "', '" . $mail->Body . "');";
-      // $email_query = "INSERT INTO Emails VALUES ('2022-01-01', 'Test Hospital', 'Test Subject', 'Test Body')";
       if (mysqli_query($conn, $email_query)) {
         echo "New record created successfully";
       } else {
