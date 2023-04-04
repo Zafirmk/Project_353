@@ -37,6 +37,9 @@
     <a href='query.php?Q=16'>16. Details of all nurses/doctors who have been infected at least three times</a>
     </br>
     </br>
+    <a href='query.php?Q=17'>17. Details of all nurses/doctors who have never been infected</a>
+    </br>
+    </br>
     <a href='query.php?Q=20'>20. Log of all emails produced by HFESTS system</a>
   </div>
 
