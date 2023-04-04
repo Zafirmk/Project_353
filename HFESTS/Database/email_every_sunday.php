@@ -90,13 +90,13 @@
     $mail->Username = "compd9376@gmail.com";
     $mail->Password = "eucmgghkonheltbn";
     $mail->Subject = $subject;
-    $mail->setFrom("compd9376@gmail.com", "HFESTS Admin");
+    $mail->setFrom("compd9376@gmail.com", $From);
     $mail->Body = $emailbody;
     $mail->addAddress($to);
   
     if ($mail->Send()) {
       echo "Email sent";
-      $email_query = "INSERT INTO Emails VALUES ('" . date("Y-m-d") . "', '" . $facilityName . "', '" . $mail->Subject . "', '" . $mail->Body . "');";
+      $email_query = "INSERT INTO Emails VALUES ('" . date("Y-m-d") . "', '" . $From . "', '" . $mail->Subject . "', '" . $mail->Body . "');";
       if (mysqli_query($conn, $email_query)) {
         echo "New record created successfully";
       } else {
