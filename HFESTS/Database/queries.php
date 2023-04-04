@@ -14,7 +14,11 @@
   } else if ($_GET['Q'] == 10) {
     $title = "All Emails sent by West Island CLSC";
     $columns = array('DateOfEmail', 'FacilityName', 'Subject', 'Body');
-    $query = "SELECT * FROM fac353_4.Emails WHERE FacilityName = 'West Island CLSC' ORDER BY DateOfEmail;";
+    $query = "SELECT * FROM Emails WHERE FacilityName = 'West Island CLSC' ORDER BY DateOfEmail;";
+  } else if ($_GET['Q'] == 20) {
+    $title = "Log of all emails produced by HFESTS system";
+    $columns = array('DateOfEmail', 'FacilityName', 'Subject', 'Body');
+    $query = "SELECT * FROM Emails;";
   }
 
 

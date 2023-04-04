@@ -32,6 +32,9 @@
     </br>
     </br>
     <a href='query.php?Q=10'>10. All Emails sent by West Island CLSC</a>
+    </br>
+    </br>
+    <a href='query.php?Q=20'>20. Log of all emails produced by HFESTS system</a>
   </div>
 
 </body>
