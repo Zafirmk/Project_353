@@ -1,3 +1,4 @@
+
 <html>
 
 <head>
@@ -24,14 +25,14 @@
     <button class="button insert">Insert Row</button>
   </form>
 
-  <form action="./F_DisplayRow.php">
+  <form action="./E_DisplayRow.php">
     <label for="employeeID">Enter Employee ID:</label>
-    <input type="text" name="employeeID" placeholder="Enter Employee ID">
+    <input type="text" name="employeeID" placeholder="Enter Employee ID" id="employeeID">
     <div>
       <button class="button display">Display Specific Row</button>
     </div>
   </form>
-</body>
 
+</body>
 
 </html>
