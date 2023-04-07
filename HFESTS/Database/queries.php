@@ -11,6 +11,20 @@
     $title = "All schedule details of Employee with ID = 3 working from 1PM to 5PM (inclusive)";
     $columns = array('FirstName', 'DayOfTheYear', 'StartTime', 'EndTime');
     $query = "SELECT F.Name as FacilityName, S.StartDate as DayOfTheYear, S.StartTime, S.EndTime FROM Schedule as S INNER JOIN Facility as F ON F.FacilityID = S.FacilityID WHERE S.EmployeeID=3 AND S.StartTime >= '13:00:00' AND S.EndTime <= '17:00:00' ORDER BY F.Name ASC, S.StartDate ASC, S.StartTime ASC";
+  
+  // } else if ($_GET['Q'] == 12) {
+  //   $title = "Total hours scheduled for every role working from 1PM to 5PM (inclusive)";
+  //   $columns = array('Role', 'TotalHours');
+  //   $query = "SELECT Role, SUM(, S.StartTime, S.EndTime FROM Schedule as S INNER JOIN Facility as F ON F.FacilityID = S.FacilityID WHERE S.EmployeeID=3 AND S.StartTime >= '13:00:00' AND S.EndTime <= '17:00:00' ORDER BY F.Name ASC, S.StartDate ASC, S.StartTime ASC";
+  // }
+  } else if ($_GET['Q'] == 13) {
+    $title = "All facilities' details and number of employees infected by COVID-19 in the past two weeks";
+    $columns = array('FacilityName', 'FacilityProvince', 'Capacity', 'InfectionName', 'InfectionDate', 'InfectedByCOVID');
+    $query = "SELECT F.Name as FacilityName, F.Province, F.Capacity, I.InfectionName, COUNT(DISTINCT I.EmployeeID) as InfectedByCOVID FROM Facility, Infection, Schedule";
+  } else if ($_GET['Q'] == 14) {
+    $title = "Number of facilities per doctor in Quebec";
+    $columns = array('EmployeeID', 'FirstName', 'LastName', 'City', 'totalNumFacilities');
+    $query = "SELECT S.EmployeeID as EmployeeID, E.FirstName as FirstName, E.LastName as LastName, E.City as City, COUNT(DISTINCT S.FacilityID) as totalNumFacilities FROM Employees_Managers, Schedule INNER JOIN Employees_Managers ON E.EmployeeID = S.EmployeeID WHERE E.Role = 'doctor' AND E.Province = 'Quebec' GROUP BY S.EmployeeID ORDER BY E.City ASC, totalNumFacilities DESC";
   }
 
   if ($result = mysqli_query($conn, $query)) {
