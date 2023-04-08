@@ -9,14 +9,14 @@ if (isset($_GET['employeeID'])) {
   $employeeID = str_replace("'", "''", $employeeID);
 
   //query to display the infection record that the user has requested 
-  $query = "SELECT * FROM Infection WHERE EmployeeID = '$employeeID'";
+  $query = "SELECT * FROM Schedule WHERE EmployeeID = '$employeeID'";
   $result = mysqli_query($conn, $query);
 
   //checking if the row is available 
   if (mysqli_num_rows($result) > 0) {
     echo "<table>"; // Display table
     while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td>" . $row['EmployeeID'] . "</td><td>" . $row['InfectionName'] . "</td><td>" . $row['InfectionType'] . "</td><td>" . $row['InfectionDate'] . "</td></tr>";
+        echo "<tr><td>" . $row['EmployeeID'] . "</td><td>" . $row['FacilityID'] . "</td><td>" . $row['StartDate'] . "</td><td>" . $row['EndDate'] . "</td><td>" . $row['StartTime'] . "</td><td>" . $row['EndTime'] . "</td><td>" . $row['Day'] . "</td></tr>";
     }
     echo "</table>";
   } else {

@@ -24,9 +24,14 @@
     <button class="button insert">Insert Row</button>
   </form>
 
-  <form action="./F_DisplayRow.php">
-    <button class="button display">Display Specific Row</button>
+  <form action="./S_DisplayRow.php">
+    <label for="employeeID">Enter the Employee ID for which you want to see the schedule:</label>
+    <input type="text" name="employeeID" placeholder="Enter Employee ID" id="employeeID">
+    <div>
+      <button class="button display">Display Specific Row</button>
+    </div>
   </form>
+
 </body>
 
 </html>
