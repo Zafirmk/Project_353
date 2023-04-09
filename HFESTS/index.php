@@ -29,6 +29,14 @@
     </br>
     </br>
     <a href='query.php?Q=8'>All schedule details of Employee with ID = 3 working from 1PM to 5PM (inclusive)</a>
+    </br>
+    </br>
+    <a href='query.php?Q=9'>Doctors who have been infected by COVID-19 in the past two weeks</a>
+    </br>
+    </br>
+    <a href='query.php?Q=11'>Doctors and Nurses scheduled in the last two weeks</a>
+    </br>
+    </br>
   </div>
 
 </body>
