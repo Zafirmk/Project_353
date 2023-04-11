@@ -1,28 +1,25 @@
-<?php
-include_once '../Database/config.php';
+<html>
 
-if (isset($_GET['facilityID'])) {
-  $facilityID = $_GET['facilityID'];
+<head>
+  <title>Facility Table</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
 
-  //SQL reads '' as '
-  $facilityID = str_replace("'", "''", $facilityID);
+<body>
+  <div class="topnav">
+    <a href="../index.php">Home</a>
+    <a href="../Employees_Managers/E_Table.php">Employees_Managers</a>
+    <a href="F_Table.php" style="color: #486ce4;font-weight: bold">Facility</a>
+    <a href="../Vaccination/V_Table.php">Vaccination</a>
+    <a href="../Infection/I_Table.php">Infection</a>
+    <a href="../Schedule/S_Table.php">Schedule</a>
+  </div>
 
-  //query to display the facility that the user has requested 
-  $query = "SELECT * FROM Facility WHERE FacilityID = '$facilityID'";
-  $result = mysqli_query($conn, $query);
+  <?php
+  $tableName = "Facility";
+  include '../Database/displayRow.php';
+  ?>
 
-  //checking if the row is available 
-  if (mysqli_num_rows($result) > 0) {
-    echo "<table>"; // Display table
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td>" . $row['FacilityID'] . "</td><td>" . $row['Name'] . "</td><td>" . $row['Address'] . ", " . $row['City'] . ", " . $row['Province'] . ", " . $row['PostalCode'] . "</td><td>" . $row['PhoneNumber'] . "</td><td>" . $row['WebAddress'] . "</td><td>" . $row['Type'] . "</td><td>" . $row['Capacity'] . "</td></tr>";
-    }
-    echo "</table>";
-  } else {
-    //If there is no row with that id, then display an error
-    echo "The following FacilityID is not found in the database: " . $facilityID . ".";
-  }
+</body>
 
-  mysqli_close($conn); 
-}
-?>
+</html>

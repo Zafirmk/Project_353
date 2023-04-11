@@ -24,12 +24,11 @@
     <button class="button insert">Insert Row</button>
   </form>
 
-  <form action="./F_DisplayRow.php">
+  <form action="./F_Display.php">
     <label for="facilityID">Enter the Facility ID:</label>
-    <input type="text" name="facilityID" placeholder="Enter facility ID" id="facilityID">
-    <div>
-      <button class="button display">Display Specific Row</button>
-    </div>
+    <input type="text" name="facilityID" placeholder="INTEGER" id="facilityID">
+    <button class="button display">Display Specific Row</button>
+    <input type="hidden" name="table_name" value="Facility" />
   </form>
 
 </body>

@@ -1,29 +1,25 @@
-<?php
+<html>
 
-include_once '../Database/config.php';
+<head>
+  <title>Schedule Table</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
 
-if (isset($_GET['employeeID'])) {
-  $employeeID = $_GET['employeeID'];
+<body>
+  <div class="topnav">
+    <a href="../index.php">Home</a>
+    <a href="../Employees_Managers/E_Table.php">Employees_Managers</a>
+    <a href="../Facility/F_Table.php">Facility</a>
+    <a href="../Vaccination/V_Table.php">Vaccination</a>
+    <a href="../Infection/I_Table.php">Infection</a>
+    <a href="S_Table.php" style="color: #486ce4;font-weight: bold">Schedule</a>
+  </div>
 
-  //SQL reads '' as '
-  $employeeID = str_replace("'", "''", $employeeID);
+  <?php
+  $tableName = "Schedule";
+  include '../Database/displayRow.php';
+  ?>
 
-  //query to display the infection record that the user has requested 
-  $query = "SELECT * FROM Schedule WHERE EmployeeID = '$employeeID'";
-  $result = mysqli_query($conn, $query);
+</body>
 
-  //checking if the row is available 
-  if (mysqli_num_rows($result) > 0) {
-    echo "<table>"; // Display table
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td>" . $row['EmployeeID'] . "</td><td>" . $row['FacilityID'] . "</td><td>" . $row['StartDate'] . "</td><td>" . $row['EndDate'] . "</td><td>" . $row['StartTime'] . "</td><td>" . $row['EndTime'] . "</td><td>" . $row['Day'] . "</td></tr>";
-    }
-    echo "</table>";
-  } else {
-    //If there is no row with that id and date, then display an error
-    echo "The following EmployeeID is not found in the database: EmployeeID=" . $employeeID . "";
-  }
-
-  mysqli_close($conn); 
-}
-?>
+</html>

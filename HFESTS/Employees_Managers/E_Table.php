@@ -1,4 +1,3 @@
-
 <html>
 
 <head>
@@ -25,12 +24,11 @@
     <button class="button insert">Insert Row</button>
   </form>
 
-  <form action="./E_DisplayRow.php">
+  <form action="./E_Display.php">
     <label for="employeeID">Enter Employee ID:</label>
-    <input type="text" name="employeeID" placeholder="Enter Employee ID" id="employeeID">
-    <div>
-      <button class="button display">Display Specific Row</button>
-    </div>
+    <input type="text" name="employeeID" placeholder="INTEGER" id="employeeID">
+    <button class="button display">Display Specific Row</button>
+    <input type="hidden" name="table_name" value="Employees_Managers" />
   </form>
 
 </body>
