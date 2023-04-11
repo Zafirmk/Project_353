@@ -40,11 +40,7 @@
     }
     echo "</table>";
     echo "<h5 class='row_amount'>Total of {$result->num_rows} rows</h5>";
-  } else {
-    //If there is no row with that id, then display an error
-    //echo "The following EmployeeID is not found in the database: " . $employeeID . ".";
   }
-
 
   mysqli_close($conn); // closing connection after printing table
   ?>
