@@ -1,3 +1,7 @@
+<?php
+include_once '../Database/config.php';
+?>
+
 <html>
 
 <head>
@@ -22,16 +26,16 @@
       <table>
         <tr>
         <td><label for="eid">Employee ID</label></td>
-          <td><input type="text" id="eid" name="eid" placeholder="INTEGER"></td>
+          <td><input type="text" id="eid" name="eid" placeholder="INTEGER" value="<?php echo $_GET['EID'];?>"></td>
           <td><label for="name">Infection Name</label></td>
-          <td><input type="text" id="name" name="name" placeholder="VARIABLE"></td>
+          <td><input type="text" id="name" name="name" placeholder="VARIABLE" value="<?php echo $_GET['Name'];?>"></td>
         </tr>
 
         <tr>
           <td><label for="type">Infection Type</label></td>
-          <td><input type="text" id="type" name="type" placeholder="VARIABLE"></td>
+          <td><input type="text" id="type" name="type" placeholder="VARIABLE" value="<?php echo $_GET['Type'];?>"></td>
           <td><label for="date">Infection Date</label></td>
-          <td><input type="text" id="date" name="date" placeholder="DATE"></td>
+          <td><input type="text" id="date" name="date" placeholder="DATE" value="<?php echo $_GET['Date'];?>"></td>
         </tr>
 
       </table>

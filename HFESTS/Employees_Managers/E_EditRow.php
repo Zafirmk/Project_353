@@ -1,3 +1,7 @@
+<?php
+include_once '../Database/config.php';
+?>
+
 <html>
 
 <head>
@@ -22,47 +26,47 @@
       <table>
         <tr>
           <td><label for="fname">First Name</label></td>
-          <td><input type="text" id="fname" name="fname" placeholder="VARIABLE" value="<?php echo $FN;?>"></td>
+          <td><input type="text" id="fname" name="fname" placeholder="VARIABLE" value="<?php echo $_GET['FN'];?>"></td>
           <td><label for="lname">Last Name</label></td>
-          <td><input type="text" id="lname" name="lname" placeholder="VARIABLE"></td>
+          <td><input type="text" id="lname" name="lname" placeholder="VARIABLE" value="<?php echo $_GET['LN'];?>"></td>
         </tr>
 
         <tr>
           <td><label for="dob">Date Of Birth</label></td>
-          <td><input type="text" id="dob" name="dob" placeholder="DATE"></td>
+          <td><input type="text" id="dob" name="dob" placeholder="DATE" value="<?php echo $_GET['DOB'];?>"></td>
           <td><label for="tel">Telephone Number</label></td>
-          <td><input type="text" id="tel" name="tel" placeholder="VARIABLE"></td>
+          <td><input type="text" id="tel" name="tel" placeholder="VARIABLE" value="<?php echo $_GET['Tel'];?>"></td>
         </tr>
 
         <tr>
           <td><label for="add">Address</label></td>
-          <td><input type="text" id="add" name="add" placeholder="VARIABLE"></td>
+          <td><input type="text" id="add" name="add" placeholder="VARIABLE" value="<?php echo $_GET['Add'];?>"></td>
           <td><label for="city">City</label></td>
-          <td><input type="text" id="city" name="city" placeholder="VARIABLE"></td>
+          <td><input type="text" id="city" name="city" placeholder="VARIABLE" value="<?php echo $_GET['City'];?>"></td>
         </tr>
 
         <tr>
           <td><label for="prov">Province</label></td>
-          <td><input type="text" id="prov" name="prov" placeholder="VARIABLE"></td>
+          <td><input type="text" id="prov" name="prov" placeholder="VARIABLE" value="<?php echo $_GET['Prov'];?>"></td>
           <td><label for="pc">Postal Code</label></td>
-          <td><input type="text" id="pc" name="pc" placeholder="VARIABLE"></td>
+          <td><input type="text" id="pc" name="pc" placeholder="VARIABLE" value="<?php echo $_GET['PC'];?>"></td>
         </tr>
 
         <tr>
           <td><label for="cs">Citizenship</label></td>
-          <td><input type="text" id="cs" name="cs" placeholder="VARIABLE"></td>
+          <td><input type="text" id="cs" name="cs" placeholder="VARIABLE" value="<?php echo $_GET['CS'];?>"></td>
           <td><label for="ea">Email Address</label></td>
-          <td><input type="text" id="ea" name="ea" placeholder="VARIABLE"></td>
+          <td><input type="text" id="ea" name="ea" placeholder="VARIABLE" value="<?php echo $_GET['EA'];?>"></td>
         </tr>
 
         <tr>
           <td><label for="role">Role</label></td>
           <td>
-            <input type="text" id="role" name="role" placeholder="VARIABLE">
+            <input type="text" id="role" name="role" placeholder="VARIABLE" value="<?php echo $_GET['Role'];?>">
           </td>
           <td><label for="im">Is Manager</label>
           </td>
-          <td> <input type="text" id="im" name="im" placeholder="0 OR 1"></td>
+          <td> <input type="text" id="im" name="im" placeholder="0 OR 1" value="<?php echo $_GET['IM'];?>"></td>
         </tr>
         <tr>
           <td></td>

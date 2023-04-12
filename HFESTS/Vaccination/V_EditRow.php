@@ -1,3 +1,7 @@
+<?php
+include_once '../Database/config.php';
+?>
+
 <html>
 
 <head>
@@ -22,21 +26,21 @@
       <table>
         <tr>
           <td><label for="eid">Employee ID</label></td>
-          <td><input type="text" id="eid" name="eid" placeholder="INTEGER"></td>
+          <td><input type="text" id="eid" name="eid" placeholder="INTEGER" value="<?php echo $_GET['EID'];?>"></td>
           <td><label for="fid">Facility ID</label></td>
-          <td><input type="text" id="fid" name="fid" placeholder="INTEGER"></td>
+          <td><input type="text" id="fid" name="fid" placeholder="INTEGER" value="<?php echo $_GET['FID'];?>"></td>
         </tr>
 
         <tr>
           <td><label for="type">Vaccine Type</label></td>
-          <td><input type="text" id="type" name="type" placeholder="VARIABLE"></td>
+          <td><input type="text" id="type" name="type" placeholder="VARIABLE" value="<?php echo $_GET['Type'];?>"></td>
           <td><label for="dn">Dose Number</label></td>
-          <td><input type="text" id="dn" name="dn" placeholder="INTEGER"></td>
+          <td><input type="text" id="dn" name="dn" placeholder="INTEGER" value="<?php echo $_GET['DN'];?>"></td>
         </tr>
 
         <tr>
           <td><label for="date">Vaccination Date</label></td>
-          <td><input type="text" id="date" name="date" placeholder="DATE"></td>
+          <td><input type="text" id="date" name="date" placeholder="DATE" value="<?php echo $_GET['Date'];?>"></td>
         </tr>
 
       </table>

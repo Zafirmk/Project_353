@@ -1,3 +1,7 @@
+<?php
+include_once '../Database/config.php';
+?>
+
 <html>
 
 <head>
@@ -22,28 +26,28 @@
       <table>
         <tr>
           <td><label for="eid">Employee ID</label></td>
-          <td><input type="text" id="eid" name="eid" placeholder="INTEGER"></td>
+          <td><input type="text" id="eid" name="eid" placeholder="INTEGER" value="<?php echo $_GET['EID'];?>"></td>
           <td><label for="fid">Facility ID</label></td>
-          <td><input type="text" id="fid" name="fid" placeholder="INTEGER"></td>
+          <td><input type="text" id="fid" name="fid" placeholder="INTEGER" value="<?php echo $_GET['FID'];?>"></td>
         </tr>
 
         <tr>
           <td><label for="sdate">Start Date</label></td>
-          <td><input type="text" id="sdate" name="sdate" placeholder="DATE"></td>
+          <td><input type="text" id="sdate" name="sdate" placeholder="DATE" value="<?php echo $_GET['SDate'];?>"></td>
           <td><label for="edate">End Date</label></td>
-          <td><input type="text" id="edate" name="edate" placeholder="DATE"></td>
+          <td><input type="text" id="edate" name="edate" placeholder="DATE" value="<?php echo $_GET['EDate'];?>"></td>
         </tr>
 
         <tr>
           <td><label for="stime">Start Time</label></td>
-          <td><input type="text" id="stime" name="stime" placeholder="TIME"></td>
-          <td><label for="etime">End Date</label></td>
-          <td><input type="text" id="etime" name="etime" placeholder="TIME"></td>
+          <td><input type="text" id="stime" name="stime" placeholder="TIME" value="<?php echo $_GET['STime'];?>"></td>
+          <td><label for="etime">End Time</label></td>
+          <td><input type="text" id="etime" name="etime" placeholder="TIME" value="<?php echo $_GET['ETime'];?>"></td>
         </tr>
 
         <tr>
           <td><label for="day">Day</label></td>
-          <td><input type="text" id="day" name="day" placeholder="VARCHAR"></td>
+          <td><input type="text" id="day" name="day" placeholder="VARCHAR" value="<?php echo $_GET['Day'];?>"></td>
         </tr>
 
       </table>

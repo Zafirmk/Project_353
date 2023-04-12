@@ -31,11 +31,16 @@
     <a href='query.php?Q=8'>All schedule details of Employee with ID = 3 working from 1PM to 5PM (inclusive)</a>
     </br>
     </br>
+    <a href='query.php?Q=12'>Total hours scheduled for every role working from 1PM to 5PM (inclusive)</a>
+    </br>
+    </br>
+    <a href='query.php?Q=13'>All facilities details and number of employees infected by COVID-19 in the past two weeks</a>
+    </br>
+    </br>
     <a href='query.php?Q=14'>Number of facilities per doctor in Quebec</a>
     </br>
     </br>
   </div>
-
 </body>
 
 </html>
