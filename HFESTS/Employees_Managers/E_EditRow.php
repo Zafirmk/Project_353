@@ -1,33 +1,7 @@
-<?php
-include_once '../Database/config.php';
-
-if(isset($_GET["id"])) {
-  $id = $_GET["id"];
-  
-  // Retrieve the data for the selected employee
-  $sql = "SELECT * FROM Employees_Managers WHERE EmployeeID = $id";
-  $result = mysqli_query($conn, $sql);
-  $row = mysqli_fetch_assoc($result);
-
-  $FN = $row['FirstName'];
-  $LN = $row['LastName'];
-  $DOB = $row['DateOfBirth'];
-  $Tel = $row['TelephoneNumber'];
-  $Add = $row['Address'];
-  $City = $row['City'];
-  $Prov = $row['Province'];
-  $PC = $row['PostalCode'];
-  $CS = $row['Citizenship'];
-  $EA = $row['EmailAddress'];
-  $Role = $row['Role'];
-  $IM = $row['Is_Manager'];
-}
-?>
-
 <html>
 
 <head>
-  <title>Edit Employees_Managers Entry</title>
+  <title>Edit Employees_Managers</title>
   <link rel="stylesheet" href="../style.css" />
 </head>
 

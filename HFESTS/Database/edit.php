@@ -17,9 +17,9 @@
     $Role = $_POST["Role"];
     $IM = $_POST["Is_Manager"];
 
-    $query = "SELECT * FROM Employees_Managers WHERE EmployeeID = '$EID'";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
+    // $query = "SELECT * FROM Employees_Managers WHERE EmployeeID = '$EID'";
+    // $result = mysqli_query($conn, $query);
+    // $row = mysqli_fetch_assoc($result);
 
     $FN = $row['FirstName'];
     $LN = $row['LastName'];
