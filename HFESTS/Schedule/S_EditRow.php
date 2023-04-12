@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>Edit Vaccination Entry</title>
+  <title>Edit Schedule Entry</title>
   <link rel="stylesheet" href="../style.css" />
 </head>
 
@@ -15,7 +15,7 @@
     <a href="../Schedule/S_Table.php">Schedule</a>
   </div>
 
-  <h2>Edit Row in Vaccination</h2>
+  <h2>Edit Row in Schedule</h2>
 
   <div class="form">
     <form class="input" action="../Database/edit.php" method="POST">
