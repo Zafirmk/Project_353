@@ -19,6 +19,10 @@
     $title = "Doctors and Nurses on Schedule";
     $columns = array("First Name", "Last Name", "Role");
     $query = "SELECT e.FirstName, e.LastName, e.Role FROM Employees_Managers e JOIN Schedule s ON e.EmployeeID = s.EmployeeID WHERE s.FacilityID = [facility_id] AND s.StartDate BETWEEN DATE_SUB(NOW(), INTERVAL 2 WEEK) AND NOW() AND (e.Role = 'Doctor' OR e.Role = 'Nurse') ORDER BY e.Role ASC, e.FirstName ASC; ";
+  } else if($_GET['Q'] == 15){
+    $title = "Nurses Working Highest Number of Hours";
+    $columns = array("First Name", "Last Name", "Role");
+    $query = "SELECT e.FirstName, e.LastName, e.DateOfBirth, e.EmailAddress, e.Is_Manager, MIN(s.StartDate) AS FirstDayOfWorkAsNurse, SUM(TIME_TO_SEC(TIMEDIFF(s.EndTime, s.StartTime))) / 3600 AS TotalScheduledHours FROM Employees_Managers e JOIN Schedule s ON e.EmployeeID = s.EmployeeID WHERE e.Role = 'nurse' AND CURDATE() BETWEEN s.StartDate AND s.EndDate GROUP BY e.EmployeeID ORDER BY TotalScheduledHours DESC LIMIT 1;";
   }
 
   if ($result = mysqli_query($conn, $query)) {
