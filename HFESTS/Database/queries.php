@@ -3,6 +3,8 @@
 
   if ($_GET['Q'] == 6) {
     $title = "All Facilities";
+    $columns = array('FacilityID', 'Name', 'Address', 'City', 'Province', 'PostalCode', 'PhoneNumber', 'WebAddress', 'Type', 'Capacity', 'GeneralManagerName', 'NumEmployees');
+    $query = "SELECT f.FacilityID AS FacilityID, f.Name, f.Address, f.City, f.Province, f.PostalCode, f.PhoneNumber, f.WebAddress, f.Type, f.Capacity, CONCAT(em.FirstName, ' ', em.LastName) AS GeneralManagerName, COUNT(DISTINCT s.EmployeeID) AS NumEmployees FROM Facility f LEFT JOIN Schedule s ON f.FacilityID = s.FacilityID AND s.EndDate IS NULL LEFT JOIN Employees_Managers em ON s.EmployeeID = em.EmployeeID AND em.Is_Manager = 1 GROUP BY f.FacilityID ORDER BY f.Province ASC, f.City ASC, f.Type ASC, NumEmployees ASC";
   } else if ($_GET['Q'] == 7) {
     $title = "All Employees working in Facility Saint Mary's Hospital";
     $columns = array('FirstName', 'LastName', 'DOB', 'MedicareCardNumber', 'TelephoneNumber', 'Address', 'City',  'Province', 'PostalCode', 'Citizenship', 'EmailAddress', 'StartDate');
