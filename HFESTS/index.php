@@ -31,6 +31,9 @@
     <a href='query.php?Q=8'>All schedule details of Employee with ID = 3 working from 1PM to 5PM (inclusive)</a>
     </br>
     </br>
+    <a href='query.php?Q=10'>All Emails sent by West Island CLSC</a>
+    </br>
+    </br>
     <a href='query.php?Q=12'>Total hours scheduled for every role working at FacilityID = 102 from 1PM to 5PM (inclusive)</a>
     </br>
     </br>
@@ -40,6 +43,13 @@
     <a href='query.php?Q=14'>Number of facilities per doctor in Quebec</a>
     </br>
     </br>
+    <a href='query.php?Q=16'>Details of all nurses/doctors who have been infected at least three times</a>
+    </br>
+    </br>
+    <a href='query.php?Q=17'>Details of all nurses/doctors who have never been infected</a>
+    </br>
+    </br>
+    <a href='query.php?Q=20'>Log of all emails produced by HFESTS system</a>
   </div>
 </body>
 
