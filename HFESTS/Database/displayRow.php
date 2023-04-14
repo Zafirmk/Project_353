@@ -8,16 +8,13 @@
     $query = "SELECT * FROM Facility WHERE FacilityID = '" . $_GET['facilityID'] . "'";
     $columns = array('FacilityID', 'Name', 'Address', 'City', 'Province', 'PostalCode', 'PhoneNumber', 'WebAddress', 'Type', 'Capacity');
   } else if ($tableName == "Vaccination") {
-    // INCOMPLETE
-    // $query = "SELECT * FROM Is_Vaccinated WHERE EmployeeID = '$employeeID'";
+    $query = "SELECT * FROM Vaccination WHERE EmployeeID = '" . $_GET['employeeID'] . "' AND FacilityID = '" . $_GET['facilityID'] . "'";
     $columns = array('EmployeeID', 'FacilityID', 'VaccineType', 'DoseNumber', 'VaccinationDate');
   } else if ($tableName == "Infection") {
-    // INCOMPLETE
-    // $query = "SELECT * FROM Infection WHERE EmployeeID = '$employeeID'";
-    $columns = array("EmployeeID", "InfectionName", "InfectionType", "InfectionDate");
-  } else { // aka Schedule table
-    // INCOMPLETE
-    // $query = "SELECT * FROM Schedule WHERE EmployeeID = '$employeeID'";
+    $query = "SELECT * FROM Infection WHERE EmployeeID = '" . $_GET['employeeID'] . "' AND InfectionDate = '" . $_GET['infectionDate'] . "'";
+    $columns = array("EmployeeID", "InfectionName", "InfectionType", "InfectionDate"); 
+  } else if ($tableName == "Schedule") { 
+    $query = "SELECT * FROM Schedule WHERE EmployeeID = '" . $_GET['employeeID'] . "'";
     $columns = array("EmployeeID", "FacilityID", "StartDate", "EndDate", "StartTime", "EndTime", "Day");
   }
 
