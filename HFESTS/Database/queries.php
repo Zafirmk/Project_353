@@ -13,8 +13,8 @@
     $query = "SELECT F.Name as FacilityName, S.StartDate as DayOfTheYear, S.StartTime, S.EndTime FROM Schedule as S INNER JOIN Facility as F ON F.FacilityID = S.FacilityID WHERE S.EmployeeID=3 AND S.StartTime >= '13:00:00' AND S.EndTime <= '17:00:00' ORDER BY F.Name ASC, S.StartDate ASC, S.StartTime ASC";
   } else if($_GET['Q'] == 9){
     $title = "Doctors Infected";
-    $columns = array("First Name", "Last Name", "Infection Date", "Facility Name");
-    $query = "SELECT e.FirstName, e.LastName, i.InfectionDate, f.Name as FacilityName FROM Employees_Managers e JOIN Infection i ON e.EmployeeID = i.EmployeeID JOIN Facility f ON e.EmployeeID = f.EmployeeID WHERE i.InfectionType = 'COVID-19' AND i.InfectionDate BETWEEN DATE_SUB(NOW(), INTERVAL 2 WEEK) AND NOW() ORDER BY f.Name ASC, e.FirstName ASC;";
+    $columns = array("FirstName", "LastName", "InfectionDate", "FacilityName");
+    $query = "SELECT e.FirstName, e.LastName, i.InfectionDate, f.Name as FacilityName FROM Employees_Managers e JOIN Schedule s ON s.EmployeeID = e.EmployeeID JOIN Facility f ON f.FacilityID = s.FacilityID JOIN Infection i ON i.EmployeeID = e.EmployeeID WHERE e.Role = 'doctor' AND i.InfectionType = 'COVID-19' AND i.InfectionDate BETWEEN DATE_SUB(NOW(), INTERVAL 2 WEEK) AND NOW() ORDER BY f.Name ASC, e.FirstName ASC;";
   } else if($_GET['Q'] == 11){
     $title = "Doctors and Nurses on Schedule";
     $columns = array("First Name", "Last Name", "Role");
