@@ -39,15 +39,16 @@
         $result3 = mysqli_query($conn, $specific_employee_query);
 
 
-        $ScheduleTable = "<table border = '1'><tr><th>Day</th><th>Start Time</th><th>End Time</th></tr>";
+        $ScheduleTable = "<table border = \"1\"><tr><th>Day</th><th>Start Time</th><th>End Time</th></tr>";
         $EmailBody = NULL;
         $Subject = NULL;
         $To = NULL;
         $days = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
 
         while($specific_employee = mysqli_fetch_array($result3)){
-            $EmailBody = "<h1 style = 'text-align:center'>Schedule Update</h1> Facility Name: " . $specific_employee['Name'] . "<br>" . "Address: " . $specific_employee['Address'] . "<br>" . "Employee Name: " . $specific_employee['FirstName'] . " " . $specific_employee['LastName'] . "<br>" . "Email Address: " . $specific_employee['EmailAddress'] . "<br>";
+            $EmailBody = "<h1 style = \"text-align:center\">Schedule Update</h1> Facility Name: " . $specific_employee['Name'] . "<br>" . "Address: " . $specific_employee['Address'] . "<br>" . "Employee Name: " . $specific_employee['FirstName'] . " " . $specific_employee['LastName'] . "<br>" . "Email Address: " . $specific_employee['EmailAddress'] . "<br>";
             $Subject = $specific_employee['Name'] . " Schedule for " . date("Y/m/d") . " to " . date("Y/m/d", strtotime("+1 week", strtotime(date("Y/m/d"))));
+            $From = $specific_employee['Name'];
             $To = $specific_employee['EmailAddress'];
         }
 
@@ -71,14 +72,14 @@
         $ScheduleTable .= "</table>";
         $EmailBody .= $ScheduleTable;
 
-        emailEmployees($conn, $Subject, $EmailBody, $To);
+        emailEmployees($conn, $Subject, $EmailBody, $From, $To);
 
     }
 
   }
 
 
-  function emailEmployees($conn, $subject, $emailbody, $to){
+  function emailEmployees($conn, $subject, $emailbody, $from, $to){
     $mail = new PHPMailer(true);
     $mail->isSMTP();
     $mail->IsHTML(true);
@@ -89,12 +90,18 @@
     $mail->Username = "compd9376@gmail.com";
     $mail->Password = "eucmgghkonheltbn";
     $mail->Subject = $subject;
-    $mail->setFrom("compd9376@gmail.com", "HFESTS Admin");
+    $mail->setFrom("compd9376@gmail.com", $from);
     $mail->Body = $emailbody;
     $mail->addAddress($to);
   
     if ($mail->Send()) {
-      echo "Email sent <br>";
+      echo "Email sent";
+      $email_query = "INSERT INTO Emails VALUES ('" . date("Y-m-d") . "', '" . $from . "', '" . $mail->Subject . "', '" . $mail->Body . "');";
+      if (mysqli_query($conn, $email_query)) {
+        echo "New record created successfully";
+      } else {
+        echo "Error: " . $email_query . "<br>" . mysqli_error($conn);
+      }
     }
     else{
       echo "Email fail";
