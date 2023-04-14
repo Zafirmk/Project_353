@@ -37,6 +37,8 @@
     <a href='query.php?Q=11'>Doctors and Nurses scheduled in the last two weeks</a>
     </br>
     </br>
+    <a href='query.php?Q=15'>Nurses Working Highest Number of Hours</a>
+
   </div>
 
 </body>

@@ -18,7 +18,7 @@
   } else if($_GET['Q'] == 11){
     $title = "Doctors and Nurses on Schedule";
     $columns = array("First Name", "Last Name", "Role");
-    $query = "SELECT e.FirstName, e.LastName, e.Role FROM Employees_Managers e JOIN Schedule s ON e.EmployeeID = s.EmployeeID WHERE s.FacilityID = [facility_id] AND s.StartDate BETWEEN DATE_SUB(NOW(), INTERVAL 2 WEEK) AND NOW() AND (e.Role = 'Doctor' OR e.Role = 'Nurse') ORDER BY e.Role ASC, e.FirstName ASC; ";
+    $query = "SELECT e.FirstName, e.LastName, e.Role FROM Employees_Managers e JOIN Schedule s ON e.EmployeeID = s.EmployeeID WHERE s.FacilityID = [facility_id] AND s.StartDate BETWEEN DATE_SUB(NOW(), INTERVAL 2 WEEK) AND NOW() AND (e.Role = 'Doctor' OR e.Role = 'Nurse') ORDER BY e.Role ASC, e.FirstName ASC;";
   } else if($_GET['Q'] == 15){
     $title = "Nurses Working Highest Number of Hours";
     $columns = array("First Name", "Last Name", "Role");
