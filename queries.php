@@ -14,7 +14,7 @@
   } else if ($_GET['Q'] == 12) {
     $title = "Total hours scheduled for every role working from 1PM to 5PM (inclusive)";
     $columns = array('FacilityName', 'Role', 'TotalHours');
-    $query = "SELECT F.Name as FacilityName, E.Role as Role, SUM(TIMESTAMPDIFF(HOUR, S.StartTime, S.EndTime)) as TotalHours FROM Schedule as S INNER JOIN Employees_Managers as E ON S.EmployeeID = E.EmployeeID INNER JOIN Facility as F ON S.FacilityID = F.FacilityID WHERE S.StartTime >= '13:00:00' AND S.EndTime <= '17:00:00' AND F.FacilityID = 5 GROUP BY E.Role ORDER BY E.Role ASC";
+    $query = "SELECT F.Name as FacilityName, E.Role as Role, SUM(TIMESTAMPDIFF(HOUR, S.StartTime, S.EndTime)) as TotalHours FROM Schedule as S INNER JOIN Employees_Managers as E ON S.EmployeeID = E.EmployeeID INNER JOIN Facility as F ON S.FacilityID = F.FacilityID WHERE S.StartTime >= '13:00:00' AND S.EndTime <= '17:00:00' AND F.FacilityID = 102 GROUP BY E.Role ORDER BY E.Role ASC";
   } else if ($_GET['Q'] == 13) {
     $title = "All facilities details and number of employees infected by COVID-19 in the past two weeks";
     $columns = array('FacilityName', 'Province', 'Capacity', 'InfectedByCOVID');
@@ -22,7 +22,7 @@
   } else if ($_GET['Q'] == 14) {
     $title = "Number of facilities per doctor in Quebec";
     $columns = array('EmployeeID', 'FirstName', 'LastName', 'City', 'totalNumFacilities');
-    $query = "SELECT E.EmployeeID as EmployeeID, E.FirstName as FirstName, E.LastName as LastName, E.City as City, COUNT(DISTINCT S.FacilityID) as totalNumFacilities FROM Schedule as S INNER JOIN Employees_Managers AS E ON E.EmployeeID = S.EmployeeID WHERE E.Role = 'doctor' AND E.Province = 'Quebec' GROUP BY E.EmployeeID ORDER BY E.City ASC, totalNumFacilities DESC";
+    $query = "SELECT E.EmployeeID as EmployeeID, E.FirstName as FirstName, E.LastName as LastName, E.City as City, COUNT(DISTINCT S.FacilityID) as totalNumFacilities FROM Schedule as S INNER JOIN Employees_Managers AS E ON E.EmployeeID = S.EmployeeID INNER JOIN Facility as F ON F.FacilityID = S.FacilityID WHERE E.Role = 'doctor' AND F.Province = 'Quebec' GROUP BY E.EmployeeID ORDER BY E.City ASC, totalNumFacilities DESC";
   }
 
   if ($result = mysqli_query($conn, $query)) {
