@@ -34,10 +34,13 @@
     <a href='query.php?Q=9'>Doctors who have been infected by COVID-19 in the past two weeks</a>
     </br>
     </br>
-    <a href='query.php?Q=11'>Doctors and Nurses scheduled in the last two weeks</a>
+    <!-- query 11 is going to be in HFEST>query_11.php -->
+    <a href='query_11.php'>Doctors and Nurses scheduled in the last two weeks</a>
     </br>
     </br>
     <a href='query.php?Q=15'>Nurses Working Highest Number of Hours</a>
+
+    
 
   </div>
 
