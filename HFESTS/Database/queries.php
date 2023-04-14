@@ -28,7 +28,7 @@
   } else if ($_GET['Q'] == 14) {
     $title = "Number of facilities per doctor in Quebec";
     $columns = array('EmployeeID', 'FirstName', 'LastName', 'City', 'totalNumFacilities');
-    $query = "SELECT E.EmployeeID as EmployeeID, E.FirstName as FirstName, E.LastName as LastName, E.City as City, COUNT(DISTINCT S.FacilityID) as totalNumFacilities FROM Schedule as S INNER JOIN Employees_Managers AS E ON E.EmployeeID = S.EmployeeID WHERE E.Role = 'doctor' AND E.Province = 'Quebec' GROUP BY E.EmployeeID ORDER BY E.City ASC, totalNumFacilities DESC";
+    $query = "SELECT E.EmployeeID as EmployeeID, E.FirstName as FirstName, E.LastName as LastName, E.City as City, COUNT(DISTINCT S.FacilityID) as totalNumFacilities FROM Schedule as S INNER JOIN Employees_Managers AS E ON E.EmployeeID = S.EmployeeID INNER JOIN Facility as F ON F.FacilityID = S.FacilityID WHERE E.Role = 'doctor' AND F.Province = 'Quebec' GROUP BY E.EmployeeID ORDER BY E.City ASC, totalNumFacilities DESC";
   } else if ($_GET['Q'] == 16) {
     $title = "Details of all nurses/doctors who have been infected at least three times";
     $columns = array('FirstName', 'LastName', 'DateOfBirth', 'EmailAddress', 'Role', 'FirstDayOfWork', 'TotalScheduledHours');
