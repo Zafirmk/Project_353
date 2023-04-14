@@ -1,5 +1,31 @@
 <?php
 include_once '../Database/config.php';
+
+if (isset($_POST['submit'])) {
+$id = $_POST['id'];
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
+$dob = $_POST['dob'];
+$tel = $_POST['tel'];
+$add = $_POST['add'];
+$city = $_POST['city'];
+$prov = $_POST['prov'];
+$pc = $_POST['pc'];
+$cs = $_POST['cs'];
+$ea = $_POST['ea'];
+$role = $_POST['role'];
+$im = $_POST['im'];
+
+  $sql = "UPDATE Employees_Managers SET FirstName = '$fname', LastName = '$lname', DateOfBirth = '$dob', TelephoneNumber = '$tel', Address = '$add', City = '$city', Province = '$prov', PostalCode = '$pc', Citizenship = '$cs', EmailAddress = '$ea', Role = '$role', Is_Manager = '$im' WHERE EmployeeID = '$id'";
+
+  if (mysqli_query($conn, $sql)) {
+    header("Location: E_Table.php");
+    exit();
+  } else {
+    echo "Error updating record: " . mysqli_error($conn);
+  }
+}
+
 ?>
 
 <html>
@@ -22,8 +48,12 @@ include_once '../Database/config.php';
   <h2>Edit Row in Employees_Managers</h2>
 
   <div class="form">
-    <form class="input" action="../Database/edit.php" method="POST">
+    <form class="input" action="" method="POST">
       <table>
+        <tr>
+          <td><label for="id">Employee ID (cannot change)</label></td>
+          <td><input type="text" id="id" name="id" value="<?php echo $_GET['EID'];?>" readonly></td>
+        </tr>
         <tr>
           <td><label for="fname">First Name</label></td>
           <td><input type="text" id="fname" name="fname" placeholder="VARIABLE" value="<?php echo $_GET['FN'];?>"></td>

@@ -37,7 +37,7 @@
         <tr>
           <td><label class="required" for="stime">Start Time</label></td>
           <td><input type="text" id="stime" name="stime" placeholder="TIME"></td>
-          <td><label class="required" for="etime">End Date</label></td>
+          <td><label class="required" for="etime">End Time</label></td>
           <td><input type="text" id="etime" name="etime" placeholder="TIME"></td>
         </tr>
 

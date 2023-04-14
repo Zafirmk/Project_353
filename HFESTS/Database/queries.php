@@ -11,19 +11,18 @@
     $title = "All schedule details of Employee with ID = 3 working from 1PM to 5PM (inclusive)";
     $columns = array('FirstName', 'DayOfTheYear', 'StartTime', 'EndTime');
     $query = "SELECT F.Name as FacilityName, S.StartDate as DayOfTheYear, S.StartTime, S.EndTime FROM Schedule as S INNER JOIN Facility as F ON F.FacilityID = S.FacilityID WHERE S.EmployeeID=3 AND S.StartTime >= '13:00:00' AND S.EndTime <= '17:00:00' ORDER BY F.Name ASC, S.StartDate ASC, S.StartTime ASC";
-  
   } else if ($_GET['Q'] == 12) {
     $title = "Total hours scheduled for every role working from 1PM to 5PM (inclusive)";
-    $columns = array('Role', 'TotalHours');
-    $query = "SELECT E.Role, SUM(TIMESTAMPDIFF(HOURS, S.STime, S.ETime)) AS TotalHours FROM Schedule as S INNER JOIN Employee_Managers as E ON S.EID = E.EID WHERE S.STime >= '13:00:00' AND S.ETime <= '17:00:00' AND S.FID = 5 GROUP BY E.Role ORDER BY E.Role ASC";
+    $columns = array('FacilityName', 'Role', 'TotalHours');
+    $query = "SELECT F.Name as FacilityName, E.Role as Role, SUM(TIMESTAMPDIFF(HOUR, S.StartTime, S.EndTime)) as TotalHours FROM Schedule as S INNER JOIN Employees_Managers as E ON S.EmployeeID = E.EmployeeID INNER JOIN Facility as F ON S.FacilityID = F.FacilityID WHERE S.StartTime >= '13:00:00' AND S.EndTime <= '17:00:00' AND F.FacilityID = 102 GROUP BY E.Role ORDER BY E.Role ASC";
   } else if ($_GET['Q'] == 13) {
     $title = "All facilities details and number of employees infected by COVID-19 in the past two weeks";
-    $columns = array('FacilityName', 'FacilityProvince', 'Capacity', 'InfectionName', 'InfectionDate', 'InfectedByCOVID');
-    $query = "SELECT F.Name as FacilityName, F.Province, F.Capacity, I.InfectionName, COUNT(DISTINCT I.EmployeeID) as InfectedByCOVID FROM Facility, Infection, Schedule";
+    $columns = array('FacilityName', 'Province', 'Capacity', 'InfectedByCOVID');
+    $query = "SELECT F.Name as FacilityName, F.Province as Province, F.Capacity as Capacity, COUNT(DISTINCT I.EmployeeID) as InfectedByCOVID FROM Facility as F INNER JOIN Schedule as S ON S.FacilityID = F.FacilityID INNER JOIN Infection as I ON I.EmployeeID = S.EmployeeID WHERE I.InfectionDate BETWEEN DATE_SUB(NOW(), INTERVAL 2 WEEK) AND NOW() GROUP BY F.FacilityID ORDER BY F.Province ASC, InfectedByCOVID ASC";
   } else if ($_GET['Q'] == 14) {
     $title = "Number of facilities per doctor in Quebec";
     $columns = array('EmployeeID', 'FirstName', 'LastName', 'City', 'totalNumFacilities');
-    $query = "SELECT S.EID as EmployeeID, E.FirstName as FirstName, E.LastName as LastName, E.City as City, COUNT(DISTINCT S.FID) as totalNumFacilities FROM Employees_Managers, Schedule INNER JOIN Employees_Managers AS E ON E.EID = S.EID WHERE E.Role = 'doctor' AND E.Province = 'Quebec' GROUP BY S.EID ORDER BY E.City ASC, totalNumFacilities DESC";
+    $query = "SELECT E.EmployeeID as EmployeeID, E.FirstName as FirstName, E.LastName as LastName, E.City as City, COUNT(DISTINCT S.FacilityID) as totalNumFacilities FROM Schedule as S INNER JOIN Employees_Managers AS E ON E.EmployeeID = S.EmployeeID WHERE E.Role = 'doctor' AND E.Province = 'Quebec' GROUP BY E.EmployeeID ORDER BY E.City ASC, totalNumFacilities DESC";
   }
 
   if ($result = mysqli_query($conn, $query)) {

@@ -1,5 +1,28 @@
 <?php
 include_once '../Database/config.php';
+
+if (isset($_POST['submit'])) {
+$fid = $_POST['fid'];
+$name = $_POST['name'];
+$add = $_POST['add'];
+$city = $_POST['city'];
+$prov = $_POST['prov'];
+$pc = $_POST['pc'];
+$pn = $_POST['pn'];
+$wa = $_POST['wa'];
+$type = $_POST['type'];
+$cap = $_POST['cap'];
+
+  $sql = "UPDATE Facility SET Name = '$name', Address = '$add', City = '$city', Province = '$prov', PostalCode = '$pc', PhoneNumber = '$pn', WebAddress = '$wa', Type = '$type', Capacity = '$cap' WHERE FacilityID = '$fid'";
+
+  if (mysqli_query($conn, $sql)) {
+    header("Location: F_Table.php");
+    exit();
+  } else {
+    echo "Error updating record: " . mysqli_error($conn);
+  }
+}
+
 ?>
 
 <html>
@@ -22,8 +45,12 @@ include_once '../Database/config.php';
   <h2>Edit Row in Facility</h2>
 
   <div class="form">
-    <form class="input" action="../Database/edit.php">
+    <form class="input" action="" method="POST">
       <table>
+        <tr>
+          <td><label for="fid">Facility ID (cannot change)</label></td>
+          <td><input type="text" id="fid" name="fid" value="<?php echo $_GET['FID'];?>" readonly></td>
+        </tr>
         <tr>
           <td><label for="name">Name</label></td>
           <td><input type="text" id="name" name="name" placeholder="VARIABLE" value="<?php echo $_GET['Name'];?>"></td>
@@ -56,7 +83,7 @@ include_once '../Database/config.php';
           <td> <input type="text" id="cap" name="cap" placeholder="INTEGER" value="<?php echo $_GET['Cap'];?>"></td>
         </tr>
       </table>
-      <input type="submit" value="Submit">
+      <input type="submit" name="submit" value="Submit">
       <input type="hidden" name="table_name" value="Facility" />
     </form>
   </div>

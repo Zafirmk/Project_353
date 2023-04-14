@@ -1,5 +1,24 @@
 <?php
 include_once '../Database/config.php';
+
+if (isset($_POST['submit'])) {
+$eid = $_POST['eid'];
+$fid = $_POST['fid'];
+$type = $_POST['type'];
+$dn = $_POST['dn'];
+$editdn = $_POST['editdn'];
+$date = $_POST['date'];
+
+  $sql = "UPDATE Vaccination SET EmployeeID = '$eid', FacilityID = '$fid', VaccineType = '$type', DoseNumber = '$editdn', VaccinationDate = '$date' WHERE EmployeeID = '$eid' AND FacilityID = '$fid' AND DoseNumber = '$dn'";
+
+  if (mysqli_query($conn, $sql)) {
+    header("Location: V_Table.php");
+    exit();
+  } else {
+    echo "Error updating record: " . mysqli_error($conn);
+  }
+}
+
 ?>
 
 <html>
@@ -22,20 +41,20 @@ include_once '../Database/config.php';
   <h2>Edit Row in Vaccination</h2>
 
   <div class="form">
-    <form class="input" action="../Database/edit.php">
+    <form class="input" action="" method = "POST">
       <table>
         <tr>
-          <td><label for="eid">Employee ID</label></td>
-          <td><input type="text" id="eid" name="eid" placeholder="INTEGER" value="<?php echo $_GET['EID'];?>"></td>
-          <td><label for="fid">Facility ID</label></td>
-          <td><input type="text" id="fid" name="fid" placeholder="INTEGER" value="<?php echo $_GET['FID'];?>"></td>
+          <td><label for="eid">Employee ID (cannot change)</label></td>
+          <td><input type="text" id="eid" name="eid" placeholder="INTEGER" value="<?php echo $_GET['EID'];?>" readonly></td>
+          <td><label for="fid">Facility ID (cannot change)</label></td>
+          <td><input type="text" id="fid" name="fid" placeholder="INTEGER" value="<?php echo $_GET['FID'];?>" readonly></td>
         </tr>
 
         <tr>
           <td><label for="type">Vaccine Type</label></td>
           <td><input type="text" id="type" name="type" placeholder="VARIABLE" value="<?php echo $_GET['Type'];?>"></td>
-          <td><label for="dn">Dose Number</label></td>
-          <td><input type="text" id="dn" name="dn" placeholder="INTEGER" value="<?php echo $_GET['DN'];?>"></td>
+          <td><label for="editdn">Dose Number</label></td>
+          <td><input type="text" id="editdn" name="editdn" placeholder="INTEGER" value="<?php echo $_GET['DN'];?>"></td>
         </tr>
 
         <tr>
@@ -46,8 +65,11 @@ include_once '../Database/config.php';
       </table>
 
       <p class="info">The combination of Employee ID, Facility ID and Dose Number MUST BE UNIQUE!</p>
-      <input type="submit" value="Submit">
+      <input type="submit" name="submit" value="Submit">
       <input type="hidden" name="table_name" value="Vaccination" />
+      <input type="hidden" name="eid" value="<?php echo $_GET['EID'];?>">
+      <input type="hidden" name="fid" value="<?php echo $_GET['FID'];?>">
+      <input type="hidden" name="dn" value="<?php echo $_GET['DN'];?>">
     </form>
   </div>
 
