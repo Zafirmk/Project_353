@@ -1,9 +1,8 @@
 <html>
 
 <head>
-  <title>Popular Query</title>
+  <title>HFESTS Home</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 
 <body>
@@ -16,9 +15,22 @@
     <a href="Schedule/S_Table.php">Schedule</a>
   </div>
 
-  <?php
-  include 'Database/queries.php';
-  ?>
+
+  <div style="padding-left:30px;">
+    </br>
+    </br>
+    </br>
+    </br>
+
+    <form action="query.php" method="get">
+        <label for="facility_name">Enter facility name:</label>
+        <input type="text" id="facility_id" name="facility_id">
+        <input type="hidden" name="Q" value="11">
+        <button type="submit">Submit</button>
+    </form>
+    <!-- <a href='query.php?Q=6'>All Facilities</a> -->
+
+  </div>
 
 </body>
 
